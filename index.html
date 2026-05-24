@@ -484,6 +484,27 @@ footer{border-top:1px solid var(--line);padding:64px 0 80px;margin-top:32px;back
 })();
 </script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"LocalBusiness","@id":"https://handymanpro.ai-loren.com/#business","name":"HandyMan Pro LLC","image":"https://images.weserv.nl/?url=handymanprofl.com/wp-content/uploads/2020/11/luxury-modern-bathroom-1-scaled.jpg","url":"https://handymanpro.ai-loren.com/","telephone":"+17542476766","priceRange":"$$","address":{"@type":"PostalAddress","addressLocality":"Weston","addressRegion":"FL","addressCountry":"US"},"areaServed":[{"@type":"City","name":"Weston"},{"@type":"City","name":"Pembroke Pines"},{"@type":"City","name":"Davie"}],"openingHoursSpecification":{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"00:00","closes":"23:59"},"aggregateRating":{"@type":"AggregateRating","ratingValue":"4.9","reviewCount":"127"}}</script>
+
+<!-- ============ ELEVENLABS CONCIERGE WIDGET ============ -->
+<style>
+  /* HandyMan Pro Concierge — multilingual voice + text widget (Powered by Loren AI) */
+  elevenlabs-convai {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    z-index: 70;
+  }
+  /* Lift above the mobile sticky bottom nav */
+  @media (max-width: 899px) {
+    elevenlabs-convai {
+      bottom: calc(92px + env(safe-area-inset-bottom, 0px));
+      right: 16px;
+    }
+  }
+</style>
+<elevenlabs-convai agent-id="agent_5301kse1jjqaevja3b7gjs3n0e12"></elevenlabs-convai>
+<script src="https://unpkg.com/@elevenlabs/convai-widget-embed" async type="text/javascript"></script>
+
 </body>
 </html>
 
