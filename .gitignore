@@ -1,0 +1,15 @@
+.env
+.env.local
+.env.*.local
+node_modules/
+dist/
+build/
+.DS_Store
+*.log
+.vscode/
+.idea/
+data/*.csv
+data/*.xlsx
+*.bak
+.cache/
+coverage/
