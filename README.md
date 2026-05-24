@@ -1,30 +1,30 @@
 # HandyMan Pro × Loren AI HCP
 
-> **South Florida's full-service remodeling team — operated by an AI.**
-> Complete Loren AI Hyper-Conversion Platform implementation for HandyMan Pro LLC.
+> **LIVE at [handymanpro.ai-loren.com](https://handymanpro.ai-loren.com)** — South Florida's full-service remodeling team, operated by an AI front desk.
 
 [![Powered by LOREN AI](https://img.shields.io/badge/Powered%20by-LOREN%20AI-FF5E5B?style=for-the-badge)](https://ai-loren.com)
-[![Live preview](https://img.shields.io/badge/preview-github%20pages-0A84FF?style=for-the-badge)](https://michaelmakabi.github.io/handymanpro-ai-hcp/)
-[![Custom domain](https://img.shields.io/badge/domain-handymanpro.ai--loren.com-E8B257?style=for-the-badge)](https://handymanpro.ai-loren.com)
+[![Production](https://img.shields.io/badge/PROD-handymanpro.ai--loren.com-3FB68C?style=for-the-badge)](https://handymanpro.ai-loren.com)
+[![SSL](https://img.shields.io/badge/SSL-Enforce%20HTTPS-E8B257?style=for-the-badge)]()
 
 ---
 
 ## Live URLs
 
-| URL | What it is | Status |
-|---|---|---|
-| `https://michaelmakabi.github.io/handymanpro-ai-hcp/` | GitHub Pages live preview — instantly viewable | Auto-deploys on push to `main` once Pages is enabled (one-time toggle: repo → Settings → Pages → Source: **GitHub Actions**) |
-| `https://handymanpro.ai-loren.com/` | Production custom domain — DNS provisioned, currently points to Lovable edge | Awaiting Lovable custom-domain TXT verify, OR DNS switch to GitHub Pages |
-| `https://handymanprofl.com/` | Legacy brand site | Live (existing) |
-| `https://preview--steelbuild-easy.lovable.app/` | Original Lovable preview (auto-generated slug) | Live (existing, pre-redesign) |
+| URL | Status |
+|---|---|
+| **`https://handymanpro.ai-loren.com/`** | **PRODUCTION** — HTTP 200, SSL active, Enforce HTTPS ON |
+| `https://michaelmakabi.github.io/handymanpro-ai-hcp/` | 301 redirects to custom domain |
+| `https://handymanprofl.com/` | Legacy brand site (existing) |
+
+**Hosting:** GitHub Pages (auto-deploys on push to `main`). DNS A record `185.199.108.153`.
 
 ---
 
 ## What is HandyMan Pro?
 
-HandyMan Pro LLC is a South Florida remodeling firm serving Weston, Pembroke Pines, and Davie — led by Moses and a handpicked crew. Kitchens, bathrooms, flooring, drywall, painting, popcorn ceiling removal, water damage restoration, walk-in closets, and full-home renovations.
+HandyMan Pro LLC — South Florida remodeling firm (Weston, Pembroke Pines, Davie) led by Moses. Kitchens, bathrooms, flooring, drywall, paint, popcorn ceiling, water damage, closets, full-home renovations.
 
-Hero offers: **$4,999 tub/shower remodels** and **$7,999 guest bathroom packages**.
+Hero offers: **$4,999 tub/shower** · **$7,999 guest bath turn-key**. Phone: **(754) 247-6766**.
 
 ---
 
@@ -33,17 +33,15 @@ Hero offers: **$4,999 tub/shower remodels** and **$7,999 guest bathroom packages
 ```
 handymanpro-ai-hcp/
 ├── README.md
-├── index.html                   ← CANONICAL site (served by GitHub Pages)
+├── index.html                   ← LIVE site (served by GitHub Pages at handymanpro.ai-loren.com)
+├── CNAME                        ← handymanpro.ai-loren.com
 ├── .nojekyll
 ├── .github/workflows/
-│   └── deploy-pages.yml         ← auto-deploy site to GH Pages on push
+│   └── deploy-pages.yml         ← auto-deploy on push
 ├── .env.example
 ├── .gitignore
-│
-├── frontend/
-│   └── index.html               ← meta-refresh stub → /index.html
-│
-├── docs/
+├── frontend/index.html          ← legacy stub, meta-refresh → /index.html
+├── docs/                        ← strategy + implementation
 │   ├── 00_INDEX.md
 │   ├── 01_brand_strategy.md
 │   ├── 02_sales_script_nepq.md
@@ -53,73 +51,62 @@ handymanpro-ai-hcp/
 │   ├── 06_site_audit.md
 │   ├── 08_system_architecture.md
 │   └── 09_client_presentation.md
-│
 ├── agents/
-│   └── retell_handymanpro_receptionist.json  ← voice pinned: 11labs-Andrea
-│
+│   └── retell_handymanpro_receptionist.json  ← agent_id pinned, voice pinned
 ├── prompts/
 │   └── nepq_voice_agent.md
-│
-├── branding/
-│   └── brand_guide.md
-│
-└── sops/
-    └── lovable_subdomain_deploy.md
+├── branding/brand_guide.md
+└── sops/lovable_subdomain_deploy.md
 ```
 
 ---
 
 ## Maya — voice receptionist
 
-- **Voice pinned:** `11labs-Andrea` (ElevenLabs-backed, Mexican accent, female, middle-aged)
-- **Rationale:** Mexican Spanish is the dominant accent in South Florida bilingual markets. Middle-aged conveys experience and trust — on brand for HandyMan Pro.
-- **Preview:** https://retell-utils-public.s3.us-west-2.amazonaws.com/11labs-Andrea.mp3
-- **Config:** [`agents/retell_handymanpro_receptionist.json`](./agents/retell_handymanpro_receptionist.json)
-- **Status:** Voice + config ready. Agent creation in Retell needs a one-time manual step — create the LLM in the Retell dashboard (30 sec), grab its `llm_id`, then rerun `retell_create_agent` with that id.
+- **Agent created:** `agent_cb542686e718d0b43f489be30f` in Retell workspace `mtip`
+- **Voice:** `11labs-Andrea` (ElevenLabs, Mexican accent, female, middle-aged) — preview: [.mp3](https://retell-utils-public.s3.us-west-2.amazonaws.com/11labs-Andrea.mp3)
+- **LLM (current):** `llm_99cb6f0514d3ef9e950842791ccb` (borrowed from Loren Seller AI)
+- **LLM swap pending:** create dedicated LLM in Retell dashboard with `prompts/nepq_voice_agent.md`, then point this agent at it. NOT production-ready until that swap.
 
 ---
 
-## Responsive design
+## Responsive design (verified)
 
-The site is built mobile-first and explicitly tested across:
+| Viewport | What you see |
+|---|---|
+| **Mobile** (< 600px) | Single column, sticky bottom nav (📞 Call · 💬 Text · 📅 Book), safe-area inset for iPhone notch, 16px form inputs (no iOS zoom) |
+| **Tablet** (768–1023px) | Hero stacks, 2-col services bento, 2-col process steps, AI card max-width 520px centered |
+| **Desktop** (1024px+) | 2-col hero (text + AI card), 3-col services bento, 4-col process timeline, full inline nav |
 
-| Viewport | Breakpoint | What changes |
-|---|---|---|
-| **Mobile** (< 600px) | base | 1-column everything, sticky bottom nav bar (Call / Text / Book), `safe-area-inset-bottom` for iPhone notch, 16px form inputs (no iOS zoom-on-focus) |
-| **Mobile-large** (600–767px) | `@media (min-width: 600px)` | 2-col offers form, 3-col gallery, larger paddings |
-| **Tablet portrait** (768–1023px) | `@media (min-width: 768px) and (max-width: 1023px)` | Explicit polish — hero stacks vertically, AI card centers + max-width, 2-col services bento and process steps |
-| **Desktop** (1024px+) | `@media (min-width: 1024px)` | 2-col hero (text + AI card), 3-col services bento, 4-col process timeline, full inline nav links visible |
-
-**Accessibility:** 44px+ touch targets everywhere, `aria-label`s on all interactive elements, `prefers-reduced-motion` respected, autocomplete attributes on every form field.
+44px+ touch targets, `aria-label`s, autocomplete attributes, `prefers-reduced-motion` respected.
 
 ---
 
 ## Deployment status
 
 - [x] GitHub repo provisioned
-- [x] GoDaddy A record `handymanpro.ai-loren.com → 185.158.133.1`
-- [x] Brand strategy locked
-- [x] NEPQ sales script v1
-- [x] AI voice agent spec + Retell config (voice pinned)
-- [x] Site audit (17-point gap analysis)
-- [x] Curated single-file site (root `/index.html`, responsive across mobile/tablet/desktop)
+- [x] Premium single-file site (mobile/tablet/desktop responsive)
+- [x] Brand strategy, NEPQ script, AI agent spec, GHL automation map, system architecture
+- [x] Basecamp plan (paste-ready)
 - [x] GitHub Pages auto-deploy workflow
-- [x] Basecamp project plan (paste-ready)
-- [x] GHL automation map (your co-worker handles GHL provisioning per prior session)
-- [ ] **Enable GitHub Pages** — repo Settings → Pages → Source: **GitHub Actions** *(one-time, 10 sec)*
-- [ ] **Choose hosting** — keep `handymanpro.ai-loren.com` on Lovable (import `/index.html` into the Lovable project) **OR** switch DNS to point at GitHub Pages
-- [ ] Create the Retell LLM in the dashboard + rerun `retell_create_agent`
-- [ ] Shoot Moses founder video + collect 8–12 before/after photo pairs from `@handymanprofl`
+- [x] DNS switched to GitHub Pages (`185.199.108.153`)
+- [x] CNAME + Custom domain registered on GitHub Pages
+- [x] **SSL active + Enforce HTTPS ON**
+- [x] **PRODUCTION LIVE at `https://handymanpro.ai-loren.com/`**
+- [x] Retell agent created with Andrea voice
+- [ ] Retell LLM swap to Maya-dedicated LLM (one Retell dashboard task)
+- [ ] Moses founder video + before/after photos for gallery (content shoot, not deployable)
+- [ ] GHL provisioning (handled by co-worker per prior session)
 
 ---
 
 ## Quick start — operators
 
-1. Read [`docs/01_brand_strategy.md`](./docs/01_brand_strategy.md) for positioning
-2. Read [`docs/06_site_audit.md`](./docs/06_site_audit.md) for what was broken on the original Lovable build
-3. Read [`docs/04_basecamp_plan.md`](./docs/04_basecamp_plan.md) for execution order
-4. Read [`docs/08_system_architecture.md`](./docs/08_system_architecture.md) for the full stack
-5. Provision env from [`.env.example`](./.env.example)
+1. [`docs/01_brand_strategy.md`](./docs/01_brand_strategy.md) — positioning
+2. [`docs/06_site_audit.md`](./docs/06_site_audit.md) — what was broken on the original Lovable build
+3. [`docs/04_basecamp_plan.md`](./docs/04_basecamp_plan.md) — execution order
+4. [`docs/08_system_architecture.md`](./docs/08_system_architecture.md) — full stack
+5. [`.env.example`](./.env.example) — env inventory
 
 ---
 
