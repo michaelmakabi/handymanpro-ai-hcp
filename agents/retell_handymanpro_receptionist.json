@@ -1,0 +1,74 @@
+{
+  "agent_name": "HandyManPro_Maya_Receptionist",
+  "version": "1.0.0",
+  "language_primary": "en-US",
+  "language_secondary": "es-US",
+  "voice_provider": "elevenlabs",
+  "voice_id": "REPLACE_WITH_ELEVENLABS_VOICE_ID",
+  "voice_settings": {
+    "stability": 0.55,
+    "similarity_boost": 0.75,
+    "style": 0.2,
+    "speed": 0.95
+  },
+  "llm_provider": "anthropic",
+  "llm_model": "claude-sonnet-4-6",
+  "temperature": 0.4,
+  "max_tokens": 600,
+  "first_message_en": "Hey, thanks for calling HandyMan Pro — South Florida remodeling. This is Maya, the virtual front desk. What's going on at the house?",
+  "first_message_es": "Hola, gracias por llamar a HandyMan Pro. Soy Maya, la recepcionista virtual. ¿En qué le ayudo hoy?",
+  "interruption_sensitivity": 0.75,
+  "end_call_after_silence_ms": 12000,
+  "ambient_sound": "office",
+  "system_prompt_file": "prompts/nepq_voice_agent.md",
+  "knowledge_base_files": [
+    "docs/01_brand_strategy.md",
+    "docs/02_sales_script_nepq.md",
+    "docs/03_ai_agent_spec.md"
+  ],
+  "tools": [
+    {
+      "name": "ghl_lookup_contact",
+      "description": "Find an existing GHL contact by phone or email.",
+      "endpoint": "https://services.leadconnectorhq.com/contacts/search",
+      "method": "POST"
+    },
+    {
+      "name": "ghl_create_contact",
+      "description": "Create a new GHL contact when none exists.",
+      "endpoint": "https://services.leadconnectorhq.com/contacts/",
+      "method": "POST"
+    },
+    {
+      "name": "ghl_book_appointment",
+      "description": "Book a slot on the estimate_visit calendar.",
+      "endpoint": "https://services.leadconnectorhq.com/calendars/events/appointments",
+      "method": "POST"
+    },
+    {
+      "name": "send_sms_followup",
+      "description": "Trigger missed-call text-back or follow-up SMS via GHL.",
+      "endpoint": "https://services.leadconnectorhq.com/conversations/messages",
+      "method": "POST"
+    },
+    {
+      "name": "warm_transfer_to_moses",
+      "description": "Warm-transfer the live call to Moses's cell on emergency intents.",
+      "endpoint": "internal://retell/transfer",
+      "method": "POST",
+      "params": {
+        "to_number": "REPLACE_WITH_MOSES_CELL",
+        "transfer_type": "warm"
+      }
+    }
+  ],
+  "guardrails": {
+    "never_quote_firm_price": true,
+    "never_offer_financing_terms": true,
+    "never_collect_payment": true,
+    "never_promise_same_day_unless_emergency": true,
+    "always_log_call_summary_to_ghl": true,
+    "max_call_duration_minutes": 12
+  },
+  "metrics_webhook": "REPLACE_WITH_METRICS_WEBHOOK_URL"
+}
