@@ -1,10 +1,18 @@
 {
   "agent_name": "HandyManPro_Maya_Receptionist",
-  "version": "1.0.0",
-  "language_primary": "en-US",
-  "language_secondary": "es-US",
+  "version": "1.1.0",
+  "voice_id": "11labs-Andrea",
+  "voice_name": "Andrea",
   "voice_provider": "elevenlabs",
-  "voice_id": "REPLACE_WITH_ELEVENLABS_VOICE_ID",
+  "voice_meta": {
+    "accent": "Mexican",
+    "gender": "female",
+    "age": "Middle Aged",
+    "preview_url": "https://retell-utils-public.s3.us-west-2.amazonaws.com/11labs-Andrea.mp3",
+    "rationale": "Mexican accent is the dominant Spanish accent in South Florida (Weston/Pembroke Pines/Davie). Middle-aged conveys experience and trust — matches HandyMan Pro positioning. ElevenLabs provider gives best bilingual EN+ES rendering."
+  },
+  "language_primary": "en-US",
+  "language_secondary": "es-MX",
   "voice_settings": {
     "stability": 0.55,
     "similarity_boost": 0.75,
@@ -13,6 +21,8 @@
   },
   "llm_provider": "anthropic",
   "llm_model": "claude-sonnet-4-6",
+  "response_engine_type": "retell-llm",
+  "response_engine_llm_id": "REPLACE_WITH_LLM_ID_FROM_RETELL_DASHBOARD",
   "temperature": 0.4,
   "max_tokens": 600,
   "first_message_en": "Hey, thanks for calling HandyMan Pro — South Florida remodeling. This is Maya, the virtual front desk. What's going on at the house?",
@@ -70,5 +80,10 @@
     "always_log_call_summary_to_ghl": true,
     "max_call_duration_minutes": 12
   },
-  "metrics_webhook": "REPLACE_WITH_METRICS_WEBHOOK_URL"
+  "metrics_webhook": "REPLACE_WITH_METRICS_WEBHOOK_URL",
+  "deploy_status": {
+    "voice_pinned": true,
+    "agent_created_in_retell": false,
+    "reason": "Retell API requires response_engine_llm_id (a pre-existing LLM config in Retell dashboard) before create-agent succeeds. 30-second manual step: Retell dashboard → LLMs → Create → name 'HandyManPro-Maya-LLM' → Anthropic Claude Sonnet → paste prompts/nepq_voice_agent.md → save LLM id → rerun create-agent with that id."
+  }
 }
