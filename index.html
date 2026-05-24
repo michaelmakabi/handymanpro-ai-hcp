@@ -125,20 +125,45 @@ section.hero{padding:64px 0 88px;position:relative;overflow:hidden}
 .phone-footer-stat .stars{color:var(--brand);font-size:1rem;letter-spacing:0.1em}
 section.vsl{padding:48px 0 64px;position:relative}
 @media(min-width:768px){section.vsl{padding:72px 0 96px}}
-.vsl .wrap{max-width:1100px;margin:0 auto;text-align:center}
+.vsl .wrap{max-width:1180px;margin:0 auto;text-align:center}
 .vsl h2{margin-bottom:24px;font-size:clamp(2.2rem,4.5vw,4.5rem)}
 .vsl .sub{font-size:1.2rem;color:var(--muted);max-width:680px;margin:0 auto 40px}
 @media(min-width:768px){.vsl .sub{font-size:1.35rem;margin-bottom:56px}}
-.vsl .video-frame{aspect-ratio:16/9;border-radius:var(--r-xl);overflow:hidden;background:linear-gradient(135deg,var(--ink),var(--ink-soft));box-shadow:var(--shadow-lg);position:relative;border:1px solid var(--line-strong)}
-.vsl .video-frame video{width:100%;height:100%;object-fit:cover;display:block}
-.vsl .video-frame::before{content:'';position:absolute;inset:-2px;border-radius:inherit;padding:2px;background:linear-gradient(140deg,var(--brand),transparent 50%);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none;z-index:2}
-.vsl .placeholder{width:100%;height:100%;display:grid;place-items:center;color:#fff;text-align:center;padding:40px;position:relative}
-.vsl .placeholder .play{width:120px;height:120px;border-radius:50%;background:var(--grad-brand);display:grid;place-items:center;box-shadow:0 30px 80px -10px var(--brand-glow);transition:transform .25s;animation:pulse-play 2.4s ease-in-out infinite}
-.vsl .placeholder:hover .play{transform:scale(1.08)}
-@keyframes pulse-play{0%,100%{box-shadow:0 30px 80px -10px var(--brand-glow),0 0 0 0 var(--brand-glow)}50%{box-shadow:0 30px 80px -10px var(--brand-glow),0 0 0 20px transparent}}
-.vsl .placeholder .play::before{content:'▶';color:#fff;font-size:2.4rem;margin-left:8px}
-.vsl .placeholder .lbl{margin-top:32px;font-family:'JetBrains Mono';font-size:0.85rem;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.78);font-weight:600}
-.vsl .placeholder .ttl{margin-top:14px;font-family:'Inter Tight';font-size:clamp(1.4rem,3vw,2.2rem);font-weight:800;color:#fff;letter-spacing:-0.03em;line-height:1.1;max-width:520px}
+.vsl .video-frame{aspect-ratio:16/9;border-radius:var(--r-xl);overflow:hidden;background:#000;box-shadow:var(--shadow-lg);position:relative;border:1px solid var(--line-strong)}
+.vsl .video-frame::before{content:'';position:absolute;inset:-2px;border-radius:inherit;padding:2px;background:linear-gradient(140deg,var(--brand),transparent 50%);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none;z-index:5}
+.vsl-slides{position:absolute;inset:0;z-index:1}
+.vsl-slide{position:absolute;inset:0;opacity:0;transition:opacity 1s ease-in-out}
+.vsl-slide.active{opacity:1}
+.vsl-slide .kb{position:absolute;inset:0;background-size:cover;background-position:center;transform:scale(1);transition:transform 11s linear,filter .8s ease;filter:brightness(0.55) saturate(1.1)}
+.vsl-slide.active .kb{transform:scale(1.12)}
+.vsl-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,20,25,0.3) 0%,rgba(15,20,25,0.1) 40%,rgba(15,20,25,0.92) 100%);z-index:2}
+.vsl-caption-box{position:absolute;left:0;right:0;bottom:0;padding:32px 24px 88px;z-index:3;text-align:left;display:flex;flex-direction:column;gap:8px}
+@media(min-width:768px){.vsl-caption-box{padding:48px 56px 96px;gap:12px}}
+.vsl-eyebrow{font-family:'JetBrains Mono';font-size:0.72rem;letter-spacing:0.24em;text-transform:uppercase;color:#E8B257;font-weight:600;opacity:0;animation:cFade .5s .15s ease-out forwards}
+@media(min-width:768px){.vsl-eyebrow{font-size:0.85rem}}
+.vsl-caption{font-family:'Inter Tight','Inter',sans-serif;font-size:clamp(1.4rem,3.6vw,3rem);font-weight:800;letter-spacing:-0.025em;line-height:1.1;color:#fff;text-wrap:balance;max-width:920px;opacity:0;transform:translateY(8px);animation:cFade .6s .25s ease-out forwards}
+@keyframes cFade{to{opacity:1;transform:translateY(0)}}
+.vsl-slide:not(.active) .vsl-eyebrow,.vsl-slide:not(.active) .vsl-caption{animation:none;opacity:0}
+.vsl-controls{position:absolute;left:24px;right:24px;bottom:24px;z-index:4;display:flex;align-items:center;gap:18px}
+@media(min-width:768px){.vsl-controls{left:48px;right:48px;bottom:32px;gap:24px}}
+.vsl-play-btn{width:48px;height:48px;border-radius:50%;background:rgba(255,255,255,0.15);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1.5px solid rgba(255,255,255,0.3);display:grid;place-items:center;color:#fff;cursor:pointer;transition:transform .15s,background .2s,box-shadow .2s;flex-shrink:0;font-size:1rem;line-height:1}
+@media(min-width:768px){.vsl-play-btn{width:58px;height:58px;font-size:1.2rem}}
+.vsl-play-btn:hover{background:var(--brand);transform:scale(1.05);box-shadow:0 8px 24px -4px var(--brand-glow);border-color:transparent}
+.vsl-progress{flex:1;height:4px;border-radius:999px;background:rgba(255,255,255,0.18);position:relative;overflow:hidden}
+.vsl-progress-bar{position:absolute;left:0;top:0;bottom:0;width:0;background:var(--grad-brand-soft);border-radius:999px;transition:width .15s linear}
+.vsl-time{font-family:'JetBrains Mono';font-size:0.78rem;color:rgba(255,255,255,0.85);font-weight:500;flex-shrink:0;letter-spacing:0.04em;font-variant-numeric:tabular-nums}
+@media(min-width:768px){.vsl-time{font-size:0.85rem}}
+.vsl-bigplay{position:absolute;inset:0;z-index:6;display:grid;place-items:center;background:rgba(15,20,25,0.55);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);cursor:pointer;transition:opacity .35s}
+.vsl-bigplay.hidden{opacity:0;pointer-events:none}
+.vsl-bigplay-circle{width:96px;height:96px;border-radius:50%;background:var(--grad-brand);display:grid;place-items:center;box-shadow:0 24px 60px -10px var(--brand-glow);transition:transform .25s;animation:pulse-play 2.4s ease-in-out infinite}
+@media(min-width:768px){.vsl-bigplay-circle{width:128px;height:128px}}
+.vsl-bigplay:hover .vsl-bigplay-circle{transform:scale(1.08)}
+@keyframes pulse-play{0%,100%{box-shadow:0 24px 60px -10px var(--brand-glow),0 0 0 0 var(--brand-glow)}50%{box-shadow:0 24px 60px -10px var(--brand-glow),0 0 0 24px transparent}}
+.vsl-bigplay-circle::before{content:'▶';color:#fff;font-size:2.4rem;margin-left:8px}
+@media(min-width:768px){.vsl-bigplay-circle::before{font-size:3rem}}
+.vsl-bigplay-meta{position:absolute;top:32px;left:0;right:0;text-align:center;color:#fff}
+.vsl-bigplay-meta .lbl{font-family:'JetBrains Mono';font-size:0.78rem;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.85);font-weight:600}
+.vsl-bigplay-meta .dur{font-family:'JetBrains Mono';font-size:0.88rem;letter-spacing:0.16em;color:var(--brand);margin-top:6px;font-weight:700}
 .marquee{padding:32px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);overflow:hidden;background:var(--card);position:relative;mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
 .marquee .track{display:flex;gap:64px;white-space:nowrap;animation:scroll 42s linear infinite;will-change:transform;width:max-content}
 @keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
@@ -327,7 +352,23 @@ footer{border-top:1px solid var(--line);padding:64px 0 80px;margin-top:32px;back
 <nav class="top"><div class="container row"><a href="#top" class="brand-mark" aria-label="HandyMan Pro home"><span class="dot"></span>HandyMan<span class="accent">Pro</span></a><div class="links"><a href="#vsl">Watch</a><a href="#offers">Offers</a><a href="#services">Services</a><a href="#process">Process</a><a href="#work">Work</a><a href="#reviews">Reviews</a><a href="#faq">FAQ</a></div><a href="tel:+17542476766" class="btn btn-primary cta-phone" aria-label="Call HandyMan Pro">(754) 247-6766</a></div></nav>
 <main id="top">
 <section class="hero"><div class="hero-bg-sparkle" id="sparkles"></div><div class="container"><div class="grid"><div><span class="eyebrow hero-fade-in">Weston · Pembroke Pines · Davie</span><h1 class="hero-fade-in" style="margin-top:24px;">One crew.<br/>Fixed prices.<br/>A phone that <span class="accent">always picks up.</span></h1><p class="lede hero-fade-in">South Florida's full-service remodeling team — handled by one experienced crew, with written fixed-price quotes and an AI front desk that books your estimate <b style="color:var(--ink);font-weight:700;">24/7</b>.</p><div class="cta-row hero-fade-in"><a href="#estimate" class="btn btn-primary">Get a free quote <span class="arrow">→</span></a><a href="#vsl" class="btn btn-ghost"><span aria-hidden="true">▶</span> Watch 80-second tour</a></div><div class="badges hero-fade-in"><span class="badge"><span class="pulse"></span>AI front desk online · 24/7</span><span class="badge">★★★★★ Google</span><span class="badge">Licensed &amp; insured FL contractor</span><span class="badge">English &amp; Español</span></div></div><div><div class="phone-mockup"><div class="phone-notch"></div><div class="screen"><div class="phone-header"><div class="av">M</div><div class="meta"><b>Maya · HandyMan Pro</b><div class="live">Virtual front desk · live</div></div></div><div class="conversation"><div class="bubble them">Hey, thanks for calling HandyMan Pro. What's going on at the house?</div><div class="bubble me">My guest bath needs a full remodel — what would that run?</div><div class="bubble them">Our guest-bath package starts at $7,999 turn-key. Want me to book Moses to come measure Thursday at 10 or 2?</div><div class="bubble me">Thursday at 2 works.</div><div class="typing"><span></span><span></span><span></span></div></div><div class="phone-footer-stat"><div class="num">42s<small>Avg time to estimate</small></div><div style="text-align:right;"><div class="stars">★★★★★</div><div style="font-size:0.66rem;color:var(--muted);letter-spacing:0.12em;margin-top:6px;text-transform:uppercase;font-weight:600;">Google</div></div></div></div></div></div></div></div></section>
-<section class="vsl" id="vsl"><div class="container"><div class="wrap"><span class="eyebrow reveal">Watch this first</span><h2 class="reveal" style="margin-top:18px;">80 seconds. Then you'll get why we're different.</h2><p class="sub reveal">No pitch. No pricing. Just exactly how we run remodels — and the unfair advantage that makes us impossible to beat in South Florida.</p><div class="video-frame reveal" id="vsl-frame"><div class="placeholder" onclick="document.getElementById('vsl-video')?.play();"><div class="play"></div><div class="lbl">HandyMan Pro · Story film</div><div class="ttl">"Every other contractor lets your call die in voicemail. Ours never sleeps."</div></div></div></div></div></section>
+<section class="vsl" id="vsl"><div class="container"><div class="wrap"><span class="eyebrow reveal">Watch this first</span><h2 class="reveal" style="margin-top:18px;">80 seconds. Then you'll get why we're different.</h2><p class="sub reveal">No pitch. No pricing. Just exactly how we run remodels — and the unfair advantage that makes us impossible to beat in South Florida.</p>
+<div class="video-frame reveal" id="vsl-frame">
+  <div class="vsl-slides" id="vsl-slides">
+    <div class="vsl-slide" data-bg="https://images.weserv.nl/?url=handymanprofl.com/wp-content/uploads/2020/12/happy-multiethnic-family-sofa2.jpg" data-eyebrow="The South Florida script" data-caption="Every homeowner knows it. You call a contractor. You leave a voicemail. You wait three days."><div class="kb" style="background-image:url('https://images.weserv.nl/?url=handymanprofl.com/wp-content/uploads/2020/12/happy-multiethnic-family-sofa2.jpg');"></div><div class="vsl-overlay"></div><div class="vsl-caption-box"><span class="vsl-eyebrow">The South Florida script</span><div class="vsl-caption">Every homeowner knows it. You call. You leave a voicemail. You wait three days.</div></div></div>
+    <div class="vsl-slide" data-bg="https://images.weserv.nl/?url=handymanprofl.com/wp-content/uploads/2023/06/Full_Remodeling_Service_Box_4.jpg" data-eyebrow="What we ended" data-caption="HandyMan Pro ended that. One crew. One project manager. A phone that never goes to voicemail."><div class="kb" style="background-image:url('https://images.weserv.nl/?url=handymanprofl.com/wp-content/uploads/2023/06/Full_Remodeling_Service_Box_4.jpg');"></div><div class="vsl-overlay"></div><div class="vsl-caption-box"><span class="vsl-eyebrow">What we ended</span><div class="vsl-caption">HandyMan Pro ended that. One crew. One project manager. A phone that never sleeps.</div></div></div>
+    <div class="vsl-slide" data-bg="https://images.weserv.nl/?url=handymanprofl.com/wp-content/uploads/2020/11/luxury-modern-bathroom-1-scaled.jpg" data-eyebrow="What we do" data-caption="Kitchens. Bathrooms. Flooring. Water damage. Weston, Pembroke Pines, Davie."><div class="kb" style="background-image:url('https://images.weserv.nl/?url=handymanprofl.com/wp-content/uploads/2020/11/luxury-modern-bathroom-1-scaled.jpg');"></div><div class="vsl-overlay"></div><div class="vsl-caption-box"><span class="vsl-eyebrow">What we do</span><div class="vsl-caption">Kitchens. Bathrooms. Flooring. Water damage. Weston, Pembroke Pines, Davie.</div></div></div>
+    <div class="vsl-slide" data-bg="https://images.weserv.nl/?url=handymanprofl.com/wp-content/uploads/2021/07/Home_Service_Box_2.jpg" data-eyebrow="Unfair advantage · 01" data-caption="An AI front desk that picks up in under a minute. 24/7. English. Spanish. Every single call."><div class="kb" style="background-image:url('https://images.weserv.nl/?url=handymanprofl.com/wp-content/uploads/2021/07/Home_Service_Box_2.jpg');"></div><div class="vsl-overlay"></div><div class="vsl-caption-box"><span class="vsl-eyebrow">Unfair advantage · 01</span><div class="vsl-caption">An AI front desk that picks up in under a minute. 24/7. English. Spanish. Every call.</div></div></div>
+    <div class="vsl-slide" data-bg="https://images.weserv.nl/?url=handymanprofl.com/wp-content/uploads/2021/12/Bathroom_Service_Box_1.jpg" data-eyebrow="Unfair advantage · 02" data-caption="Written, fixed, locked. The price you see is the price you pay. Period."><div class="kb" style="background-image:url('https://images.weserv.nl/?url=handymanprofl.com/wp-content/uploads/2021/12/Bathroom_Service_Box_1.jpg');"></div><div class="vsl-overlay"></div><div class="vsl-caption-box"><span class="vsl-eyebrow">Unfair advantage · 02</span><div class="vsl-caption">Written, fixed, locked. The price you see is the price you pay. Period.</div></div></div>
+    <div class="vsl-slide" data-bg="https://images.weserv.nl/?url=handymanprofl.com/wp-content/uploads/2020/12/2.jpg" data-eyebrow="Unfair advantage · 03" data-caption="One crew from measure to handshake. No subs blaming each other. Backed by a 12-month warranty."><div class="kb" style="background-image:url('https://images.weserv.nl/?url=handymanprofl.com/wp-content/uploads/2020/12/2.jpg');"></div><div class="vsl-overlay"></div><div class="vsl-caption-box"><span class="vsl-eyebrow">Unfair advantage · 03</span><div class="vsl-caption">One crew from measure to handshake. Backed by a 12-month workmanship warranty.</div></div></div>
+    <div class="vsl-slide" data-bg="https://images.weserv.nl/?url=handymanprofl.com/wp-content/uploads/2020/12/1.jpg" data-eyebrow="What you get" data-caption="Tell us what you want done. We measure, write the fixed-price quote, start demo inside 48 hours."><div class="kb" style="background-image:url('https://images.weserv.nl/?url=handymanprofl.com/wp-content/uploads/2020/12/1.jpg');"></div><div class="vsl-overlay"></div><div class="vsl-caption-box"><span class="vsl-eyebrow">What you get</span><div class="vsl-caption">Tell us what you want done. We measure, write the quote, start demo inside 48 hours.</div></div></div>
+    <div class="vsl-slide" data-bg="https://images.weserv.nl/?url=handymanprofl.com/wp-content/uploads/2023/06/Full_Remodeling_Service_Box_6.jpg" data-eyebrow="HandyMan Pro" data-caption="South Florida remodeling — done right, once. Call (754) 247-6766."><div class="kb" style="background-image:url('https://images.weserv.nl/?url=handymanprofl.com/wp-content/uploads/2023/06/Full_Remodeling_Service_Box_6.jpg');"></div><div class="vsl-overlay"></div><div class="vsl-caption-box"><span class="vsl-eyebrow">HandyMan Pro</span><div class="vsl-caption">South Florida remodeling — done right, once. Call (754) 247-6766.</div></div></div>
+  </div>
+  <div class="vsl-controls"><button class="vsl-play-btn" id="vsl-pause" aria-label="Pause">⏸</button><div class="vsl-progress"><div class="vsl-progress-bar" id="vsl-bar"></div></div><div class="vsl-time" id="vsl-time">0:00 / 1:20</div></div>
+  <div class="vsl-bigplay" id="vsl-bigplay"><div class="vsl-bigplay-meta"><div class="lbl">HandyMan Pro · Story film</div><div class="dur">80 SECONDS</div></div><div class="vsl-bigplay-circle"></div></div>
+  <audio id="vsl-audio" preload="none" src="audio/vsl.mp3"></audio>
+</div>
+</div></div></section>
 <div class="marquee" aria-hidden="true"><div class="track"><span>Licensed FL contractor</span><span>Fully insured</span><span>Fixed-price quotes</span><span>5-day bathroom remodels</span><span>12-month workmanship warranty</span><span>Bilingual project management</span><span>Daily site clean-up</span><span>Permits included</span><span>Licensed FL contractor</span><span>Fully insured</span><span>Fixed-price quotes</span><span>5-day bathroom remodels</span><span>12-month workmanship warranty</span><span>Bilingual project management</span><span>Daily site clean-up</span><span>Permits included</span></div></div>
 <section class="stats"><div class="container"><div class="stats-grid"><div class="stat reveal"><span class="num" data-count="8" data-suffix="+">0</span><div class="label">Years in business</div></div><div class="stat reveal"><span class="num" data-count="500" data-suffix="+">0</span><div class="label">Remodels delivered</div></div><div class="stat reveal"><span class="num" data-count="4.9" data-decimal="1">0</span><div class="label">Google rating</div></div><div class="stat reveal"><span class="num" data-count="5" data-suffix="-day">0</span><div class="label">Bath delivery</div></div></div></div></section>
 <section id="offers"><div class="container"><div class="section-head reveal"><span class="eyebrow">Limited-time pricing</span><h2>Two offers our South Florida neighbors keep saying yes to.</h2></div><div class="offer-grid"><div class="offer featured reveal"><div class="offer-img" style="background-image:url('https://images.weserv.nl/?url=handymanprofl.com/wp-content/uploads/2020/11/luxury-modern-bathroom-1-scaled.jpg');"></div><span class="tag">Most popular</span><span class="eyebrow">Bathroom · 5 days</span><div class="price"><b>$4,999</b><small>labor &amp; materials</small></div><h3>Tub or Shower Remodel</h3><ul><li>Demo &amp; disposal included</li><li>New tub or walk-in shower</li><li>Surround tile up to 80 sq ft</li><li>New fixtures (faucet, valve, drain)</li><li>Finished in 5 business days</li><li>12-month workmanship warranty</li></ul><a href="#estimate" class="btn btn-primary">Lock in this price <span class="arrow">→</span></a></div><div class="offer reveal"><div class="offer-img" style="background-image:url('https://images.weserv.nl/?url=handymanprofl.com/wp-content/uploads/2021/12/Bathroom_Service_Box_1.jpg');"></div><span class="eyebrow">Bathroom · 10 days</span><div class="price"><b>$7,999</b><small>turn-key</small></div><h3>Guest Bathroom Package</h3><ul><li>New vanity + countertop</li><li>Floor + wall tile included</li><li>Paint &amp; fixtures included</li><li>New lighting + mirror</li><li>10-day turnaround</li><li>12-month workmanship warranty</li></ul><a href="#estimate" class="btn btn-ghost">Book my measure <span class="arrow">→</span></a></div><div class="offer reveal"><div class="offer-img" style="background-image:url('https://images.weserv.nl/?url=handymanprofl.com/wp-content/uploads/2020/12/happy-multiethnic-family-sofa2.jpg');"></div><span class="eyebrow">AI front desk · 24/7</span><div class="price"><b>FREE</b><small>60-second AI estimate</small></div><h3>Instant AI Estimate</h3><ul><li>Call (754) 247-6766</li><li>Tell Maya your project</li><li>Get a price range in 60 seconds</li><li>No human pressure</li><li>No callback unless you ask</li><li>Available 24/7 · EN + ES</li></ul><a href="tel:+17542476766" class="btn btn-dark">Call Maya now <span class="arrow">→</span></a></div></div></div></section>
@@ -347,6 +388,80 @@ footer{border-top:1px solid var(--line);padding:64px 0 80px;margin-top:32px;back
 (function(){const s=document.getElementById('sparkles');if(!s||matchMedia('(prefers-reduced-motion: reduce)').matches)return;for(let i=0;i<32;i++){const st=document.createElement('div');st.className='star';st.style.left=Math.random()*100+'%';st.style.top=Math.random()*100+'%';st.style.animationDelay=Math.random()*3+'s';st.style.animationDuration=(2.5+Math.random()*2)+'s';s.appendChild(st);}})();
 (function(){if(matchMedia('(prefers-reduced-motion: reduce)').matches){document.querySelectorAll('.reveal').forEach(el=>el.classList.add('visible'));return;}const io=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target);}});},{rootMargin:'0px 0px -8% 0px',threshold:0.05});document.querySelectorAll('.reveal').forEach(el=>io.observe(el));})();
 (function(){const counters=document.querySelectorAll('.stat .num');const io=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(!e.isIntersecting)return;const el=e.target;const target=parseFloat(el.dataset.count);const suffix=el.dataset.suffix||'';const decimal=parseInt(el.dataset.decimal||'0');const dur=1800;const start=performance.now();function tick(now){const p=Math.min((now-start)/dur,1);const eased=1-Math.pow(1-p,3);const v=target*eased;el.textContent=(decimal?v.toFixed(decimal):Math.floor(v))+suffix;if(p<1)requestAnimationFrame(tick);else el.textContent=(decimal?target.toFixed(decimal):target)+suffix;}requestAnimationFrame(tick);io.unobserve(el);});},{threshold:0.5});counters.forEach(c=>io.observe(c));})();
+/* === VSL Slideshow Engine === */
+(function(){
+  const SLIDE_MS = 10000; // 10s per slide × 8 slides = 80s
+  const TOTAL_MS = 80000;
+  const slides = Array.from(document.querySelectorAll('.vsl-slide'));
+  const bar = document.getElementById('vsl-bar');
+  const timeEl = document.getElementById('vsl-time');
+  const bigplay = document.getElementById('vsl-bigplay');
+  const pauseBtn = document.getElementById('vsl-pause');
+  const audio = document.getElementById('vsl-audio');
+  let startedAt = null, paused = true, rafId = null, audioOk = false;
+  const fmt = s => `${Math.floor(s/60)}:${String(Math.floor(s%60)).padStart(2,'0')}`;
+
+  // Try to load audio (silent fallback if missing)
+  audio.addEventListener('canplaythrough', () => { audioOk = true; });
+  audio.addEventListener('error', () => { audioOk = false; });
+
+  function show(i) {
+    slides.forEach((s, idx) => s.classList.toggle('active', idx === i));
+  }
+
+  function loop() {
+    if (paused || !startedAt) return;
+    const elapsed = (audioOk ? audio.currentTime*1000 : (performance.now() - startedAt));
+    const pct = Math.min(elapsed / TOTAL_MS, 1);
+    bar.style.width = (pct*100) + '%';
+    timeEl.textContent = `${fmt(elapsed/1000)} / 1:20`;
+    const idx = Math.min(Math.floor(elapsed / SLIDE_MS), slides.length - 1);
+    show(idx);
+    if (pct >= 1) { stop(); return; }
+    rafId = requestAnimationFrame(loop);
+  }
+
+  function start() {
+    paused = false;
+    startedAt = performance.now();
+    bigplay.classList.add('hidden');
+    pauseBtn.textContent = '⏸';
+    if (audioOk) { audio.currentTime = 0; audio.play().catch(()=>{ audioOk = false; }); }
+    show(0);
+    rafId = requestAnimationFrame(loop);
+  }
+
+  function pause() {
+    paused = true;
+    if (audioOk) audio.pause();
+    pauseBtn.textContent = '▶';
+    if (rafId) cancelAnimationFrame(rafId);
+  }
+
+  function resume() {
+    if (!startedAt) return start();
+    paused = false;
+    if (audioOk) audio.play().catch(()=>{});
+    pauseBtn.textContent = '⏸';
+    rafId = requestAnimationFrame(loop);
+  }
+
+  function stop() {
+    paused = true;
+    if (audioOk) audio.pause();
+    if (rafId) cancelAnimationFrame(rafId);
+    bigplay.classList.remove('hidden');
+    startedAt = null;
+    bar.style.width = '0%';
+    timeEl.textContent = '0:00 / 1:20';
+    show(0);
+  }
+
+  bigplay.addEventListener('click', () => { audio.load(); setTimeout(start, 200); });
+  pauseBtn.addEventListener('click', () => paused ? resume() : pause());
+  audio.load(); // attempt preflight
+  show(0);
+})();
 </script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"LocalBusiness","@id":"https://handymanpro.ai-loren.com/#business","name":"HandyMan Pro LLC","image":"https://images.weserv.nl/?url=handymanprofl.com/wp-content/uploads/2020/11/luxury-modern-bathroom-1-scaled.jpg","url":"https://handymanpro.ai-loren.com/","telephone":"+17542476766","priceRange":"$$","address":{"@type":"PostalAddress","addressLocality":"Weston","addressRegion":"FL","addressCountry":"US"},"areaServed":[{"@type":"City","name":"Weston"},{"@type":"City","name":"Pembroke Pines"},{"@type":"City","name":"Davie"}],"openingHoursSpecification":{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"00:00","closes":"23:59"},"aggregateRating":{"@type":"AggregateRating","ratingValue":"4.9","reviewCount":"127"}}</script>
 </body>
