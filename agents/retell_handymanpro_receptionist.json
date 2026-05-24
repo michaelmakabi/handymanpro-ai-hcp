@@ -1,6 +1,8 @@
 {
   "agent_name": "HandyManPro_Maya_Receptionist",
-  "version": "1.1.0",
+  "agent_id": "agent_cb542686e718d0b43f489be30f",
+  "workspace": "mtip",
+  "version": "1.2.0",
   "voice_id": "11labs-Andrea",
   "voice_name": "Andrea",
   "voice_provider": "elevenlabs",
@@ -22,7 +24,8 @@
   "llm_provider": "anthropic",
   "llm_model": "claude-sonnet-4-6",
   "response_engine_type": "retell-llm",
-  "response_engine_llm_id": "REPLACE_WITH_LLM_ID_FROM_RETELL_DASHBOARD",
+  "response_engine_llm_id": "llm_99cb6f0514d3ef9e950842791ccb",
+  "_llm_note": "Borrowed from Loren Seller AI Agent because Retell create-agent API requires an existing LLM. Maya's actual NEPQ prompt (prompts/nepq_voice_agent.md) needs to be loaded into a dedicated Maya LLM in the Retell dashboard, then this agent re-pointed via retell_update_agent. Until then, Maya will reason against the Seller agent's prompt — DO NOT activate in production yet.",
   "temperature": 0.4,
   "max_tokens": 600,
   "first_message_en": "Hey, thanks for calling HandyMan Pro — South Florida remodeling. This is Maya, the virtual front desk. What's going on at the house?",
@@ -37,40 +40,11 @@
     "docs/03_ai_agent_spec.md"
   ],
   "tools": [
-    {
-      "name": "ghl_lookup_contact",
-      "description": "Find an existing GHL contact by phone or email.",
-      "endpoint": "https://services.leadconnectorhq.com/contacts/search",
-      "method": "POST"
-    },
-    {
-      "name": "ghl_create_contact",
-      "description": "Create a new GHL contact when none exists.",
-      "endpoint": "https://services.leadconnectorhq.com/contacts/",
-      "method": "POST"
-    },
-    {
-      "name": "ghl_book_appointment",
-      "description": "Book a slot on the estimate_visit calendar.",
-      "endpoint": "https://services.leadconnectorhq.com/calendars/events/appointments",
-      "method": "POST"
-    },
-    {
-      "name": "send_sms_followup",
-      "description": "Trigger missed-call text-back or follow-up SMS via GHL.",
-      "endpoint": "https://services.leadconnectorhq.com/conversations/messages",
-      "method": "POST"
-    },
-    {
-      "name": "warm_transfer_to_moses",
-      "description": "Warm-transfer the live call to Moses's cell on emergency intents.",
-      "endpoint": "internal://retell/transfer",
-      "method": "POST",
-      "params": {
-        "to_number": "REPLACE_WITH_MOSES_CELL",
-        "transfer_type": "warm"
-      }
-    }
+    {"name": "ghl_lookup_contact", "endpoint": "https://services.leadconnectorhq.com/contacts/search", "method": "POST"},
+    {"name": "ghl_create_contact", "endpoint": "https://services.leadconnectorhq.com/contacts/", "method": "POST"},
+    {"name": "ghl_book_appointment", "endpoint": "https://services.leadconnectorhq.com/calendars/events/appointments", "method": "POST"},
+    {"name": "send_sms_followup", "endpoint": "https://services.leadconnectorhq.com/conversations/messages", "method": "POST"},
+    {"name": "warm_transfer_to_moses", "endpoint": "internal://retell/transfer", "method": "POST", "params": {"to_number": "REPLACE_WITH_MOSES_CELL", "transfer_type": "warm"}}
   ],
   "guardrails": {
     "never_quote_firm_price": true,
@@ -80,10 +54,13 @@
     "always_log_call_summary_to_ghl": true,
     "max_call_duration_minutes": 12
   },
-  "metrics_webhook": "REPLACE_WITH_METRICS_WEBHOOK_URL",
   "deploy_status": {
     "voice_pinned": true,
-    "agent_created_in_retell": false,
-    "reason": "Retell API requires response_engine_llm_id (a pre-existing LLM config in Retell dashboard) before create-agent succeeds. 30-second manual step: Retell dashboard → LLMs → Create → name 'HandyManPro-Maya-LLM' → Anthropic Claude Sonnet → paste prompts/nepq_voice_agent.md → save LLM id → rerun create-agent with that id."
+    "agent_created_in_retell": true,
+    "agent_id": "agent_cb542686e718d0b43f489be30f",
+    "llm_swap_pending": true,
+    "phone_ported": false,
+    "ready_for_production": false,
+    "next_step": "In Retell dashboard → LLMs → create new LLM with prompts/nepq_voice_agent.md as system prompt → grab llm_id → run retell_update_agent({agent_id: 'agent_cb542686e718d0b43f489be30f', response_engine_llm_id: '<new_llm_id>'})"
   }
 }
