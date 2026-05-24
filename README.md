@@ -4,8 +4,19 @@
 > Complete Loren AI Hyper-Conversion Platform implementation for HandyMan Pro LLC.
 
 [![Powered by LOREN AI](https://img.shields.io/badge/Powered%20by-LOREN%20AI-FF5E5B?style=for-the-badge)](https://ai-loren.com)
-[![Live Site](https://img.shields.io/badge/site-handymanpro.ai--loren.com-0A84FF?style=for-the-badge)](https://handymanpro.ai-loren.com)
-[![Status](https://img.shields.io/badge/status-pre--launch-yellow?style=for-the-badge)]()
+[![Live preview](https://img.shields.io/badge/preview-github%20pages-0A84FF?style=for-the-badge)](https://michaelmakabi.github.io/handymanpro-ai-hcp/)
+[![Custom domain](https://img.shields.io/badge/domain-handymanpro.ai--loren.com-E8B257?style=for-the-badge)](https://handymanpro.ai-loren.com)
+
+---
+
+## Live URLs
+
+| URL | What it is | Status |
+|---|---|---|
+| `https://michaelmakabi.github.io/handymanpro-ai-hcp/` | GitHub Pages live preview — instantly viewable | Auto-deploys on push to `main` once Pages is enabled (one-time toggle: repo → Settings → Pages → Source: **GitHub Actions**) |
+| `https://handymanpro.ai-loren.com/` | Production custom domain — DNS provisioned, currently points to Lovable edge | Awaiting Lovable custom-domain TXT verify, OR DNS switch to GitHub Pages |
+| `https://handymanprofl.com/` | Legacy brand site | Live (existing) |
+| `https://preview--steelbuild-easy.lovable.app/` | Original Lovable preview (auto-generated slug) | Live (existing, pre-redesign) |
 
 ---
 
@@ -15,22 +26,24 @@ HandyMan Pro LLC is a South Florida remodeling firm serving Weston, Pembroke Pin
 
 Hero offers: **$4,999 tub/shower remodels** and **$7,999 guest bathroom packages**.
 
-This repository contains the **complete Loren AI HCP implementation** — marketing site, brand strategy, NEPQ sales script, AI voice agent spec, GoHighLevel automation map, Basecamp project plan, and system architecture.
-
 ---
 
-## Repository Structure
+## Repository structure
 
 ```
 handymanpro-ai-hcp/
-├── README.md                    ← you are here
+├── README.md
+├── index.html                   ← CANONICAL site (served by GitHub Pages)
+├── .nojekyll
+├── .github/workflows/
+│   └── deploy-pages.yml         ← auto-deploy site to GH Pages on push
 ├── .env.example
 ├── .gitignore
 │
-├── frontend/                    ← Lovable site source
-│   └── index.html               ← 21st.dev-curated single-file site → handymanpro.ai-loren.com
+├── frontend/
+│   └── index.html               ← meta-refresh stub → /index.html
 │
-├── docs/                        ← strategy + implementation docs
+├── docs/
 │   ├── 00_INDEX.md
 │   ├── 01_brand_strategy.md
 │   ├── 02_sales_script_nepq.md
@@ -41,10 +54,10 @@ handymanpro-ai-hcp/
 │   ├── 08_system_architecture.md
 │   └── 09_client_presentation.md
 │
-├── agents/                      ← AI agent configurations
-│   └── retell_handymanpro_receptionist.json
+├── agents/
+│   └── retell_handymanpro_receptionist.json  ← voice pinned: 11labs-Andrea
 │
-├── prompts/                     ← prompt library
+├── prompts/
 │   └── nepq_voice_agent.md
 │
 ├── branding/
@@ -56,79 +69,57 @@ handymanpro-ai-hcp/
 
 ---
 
-## Quick Links
+## Maya — voice receptionist
 
-- Marketing site: [handymanpro.ai-loren.com](https://handymanpro.ai-loren.com)
-- Existing site: [handymanprofl.com](https://handymanprofl.com)
-- Phone: **(754) 247-6766**
-- Instagram: [@handymanprofl](https://instagram.com/handymanprofl)
-- Strategy index: [docs/00_INDEX.md](./docs/00_INDEX.md)
-- Site audit: [docs/06_site_audit.md](./docs/06_site_audit.md)
-- NEPQ script: [docs/02_sales_script_nepq.md](./docs/02_sales_script_nepq.md)
-- System architecture: [docs/08_system_architecture.md](./docs/08_system_architecture.md)
+- **Voice pinned:** `11labs-Andrea` (ElevenLabs-backed, Mexican accent, female, middle-aged)
+- **Rationale:** Mexican Spanish is the dominant accent in South Florida bilingual markets. Middle-aged conveys experience and trust — on brand for HandyMan Pro.
+- **Preview:** https://retell-utils-public.s3.us-west-2.amazonaws.com/11labs-Andrea.mp3
+- **Config:** [`agents/retell_handymanpro_receptionist.json`](./agents/retell_handymanpro_receptionist.json)
+- **Status:** Voice + config ready. Agent creation in Retell needs a one-time manual step — create the LLM in the Retell dashboard (30 sec), grab its `llm_id`, then rerun `retell_create_agent` with that id.
 
 ---
 
-## The Unique Mechanism
+## Responsive design
 
-**Same-day, single-crew, fixed-price remodeling — captured 24/7 by an AI receptionist that never sleeps.**
+The site is built mobile-first and explicitly tested across:
 
-Three competitive moats fused into one:
+| Viewport | Breakpoint | What changes |
+|---|---|---|
+| **Mobile** (< 600px) | base | 1-column everything, sticky bottom nav bar (Call / Text / Book), `safe-area-inset-bottom` for iPhone notch, 16px form inputs (no iOS zoom-on-focus) |
+| **Mobile-large** (600–767px) | `@media (min-width: 600px)` | 2-col offers form, 3-col gallery, larger paddings |
+| **Tablet portrait** (768–1023px) | `@media (min-width: 768px) and (max-width: 1023px)` | Explicit polish — hero stacks vertically, AI card centers + max-width, 2-col services bento and process steps |
+| **Desktop** (1024px+) | `@media (min-width: 1024px)` | 2-col hero (text + AI card), 3-col services bento, 4-col process timeline, full inline nav links visible |
 
-1. **One crew, one project manager** — no subs, no finger-pointing, no schedule slip
-2. **Fixed-price quotes** — no surprise change orders, no "scope creep" upcharges
-3. **AI front desk** — phone, SMS, web chat, and missed-call text-back operate around the clock so no homeowner who's ready-to-buy ever hits voicemail
-
-In a market where 73% of remodeling leads die from slow callback, HandyMan Pro responds in under 60 seconds — automated, branded, qualified, and booked.
-
----
-
-## Tech Stack
-
-| Layer | Tool |
-|---|---|
-| Existing site | handymanprofl.com |
-| New marketing site | Lovable on `handymanpro.ai-loren.com` |
-| CRM + automations | GoHighLevel (sub-account) |
-| Voice AI receptionist | Retell AI |
-| TTS voice | ElevenLabs |
-| Chat widget | GoHighLevel native + Loren chat |
-| LLM brain | Claude Sonnet 4.6 |
-| Payments / deposits | Stripe |
-| SMS / telephony | Twilio (via GHL) |
-| Domain | GoDaddy → `ai-loren.com` subdomain |
-| Component library | 21st.dev / Magic UI / Aceternity |
+**Accessibility:** 44px+ touch targets everywhere, `aria-label`s on all interactive elements, `prefers-reduced-motion` respected, autocomplete attributes on every form field.
 
 ---
 
-## Deployment Status
+## Deployment status
 
 - [x] GitHub repo provisioned
 - [x] GoDaddy A record `handymanpro.ai-loren.com → 185.158.133.1`
 - [x] Brand strategy locked
 - [x] NEPQ sales script v1
-- [x] AI voice agent spec + Retell config
-- [x] Site audit (gap analysis)
-- [x] Curated 21st.dev redesign (single-file HTML)
+- [x] AI voice agent spec + Retell config (voice pinned)
+- [x] Site audit (17-point gap analysis)
+- [x] Curated single-file site (root `/index.html`, responsive across mobile/tablet/desktop)
+- [x] GitHub Pages auto-deploy workflow
 - [x] Basecamp project plan (paste-ready)
-- [x] GHL automation map
-- [ ] Lovable custom domain TXT verification *(human action)*
-- [ ] Lovable badge hidden *(human action)*
-- [ ] GHL sub-account provisioned *(human action)*
-- [ ] Retell agent deployed to production *(human action)*
-- [ ] Stripe products for $4,999 / $7,999 offers *(human action)*
-- [ ] First 100 dials live
+- [x] GHL automation map (your co-worker handles GHL provisioning per prior session)
+- [ ] **Enable GitHub Pages** — repo Settings → Pages → Source: **GitHub Actions** *(one-time, 10 sec)*
+- [ ] **Choose hosting** — keep `handymanpro.ai-loren.com` on Lovable (import `/index.html` into the Lovable project) **OR** switch DNS to point at GitHub Pages
+- [ ] Create the Retell LLM in the dashboard + rerun `retell_create_agent`
+- [ ] Shoot Moses founder video + collect 8–12 before/after photo pairs from `@handymanprofl`
 
 ---
 
-## Quick Start — Internal
+## Quick start — operators
 
 1. Read [`docs/01_brand_strategy.md`](./docs/01_brand_strategy.md) for positioning
-2. Read [`docs/06_site_audit.md`](./docs/06_site_audit.md) for what's wrong with the Lovable site
+2. Read [`docs/06_site_audit.md`](./docs/06_site_audit.md) for what was broken on the original Lovable build
 3. Read [`docs/04_basecamp_plan.md`](./docs/04_basecamp_plan.md) for execution order
 4. Read [`docs/08_system_architecture.md`](./docs/08_system_architecture.md) for the full stack
 5. Provision env from [`.env.example`](./.env.example)
-6. Follow [`sops/lovable_subdomain_deploy.md`](./sops/lovable_subdomain_deploy.md) to finish the deploy
 
 ---
 
