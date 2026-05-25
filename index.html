@@ -94,8 +94,6 @@ nav .cta-phone{font-size:1rem;padding:14px 22px;min-height:54px}
 .btn-primary:hover::before{transform:translateX(100%)}
 .btn-ghost{background:transparent;color:var(--ink);border:2px solid var(--line-strong);backdrop-filter:blur(8px)}
 .btn-ghost:hover{border-color:var(--brand);color:var(--brand);background:rgba(200,132,61,0.06);transform:translateY(-2px)}
-.btn-dark{background:var(--ink);color:var(--bg);border:0}
-.btn-dark:hover{background:var(--ink-soft);transform:translateY(-2px)}
 .btn .arrow{transition:transform .2s;font-size:1.3em}
 .btn:hover .arrow{transform:translateX(4px)}
 .magnetic{transition:transform .3s cubic-bezier(.2,.8,.2,1)}
@@ -302,20 +300,118 @@ footer::before{content:'';position:absolute;top:-100px;left:50%;transform:transl
 .footer-bot .powered .b{color:var(--brand-light);font-weight:700}
 .footer-bot .powered .arr{font-size:.85rem;opacity:.7;transition:transform .2s}
 .footer-bot .powered:hover .arr{transform:translate(2px,-2px);opacity:1}
-.footer-call{display:flex;align-items:center;gap:14px;padding:14px 18px;background:var(--grad-brand);color:#fff;border-radius:14px;box-shadow:0 12px 30px -10px var(--brand-glow);transition:transform .25s, box-shadow .25s;width:100%;max-width:320px;text-decoration:none}
-.footer-call:hover{transform:translateY(-2px);box-shadow:0 20px 40px -10px var(--brand-glow)}
-.footer-call .icn{width:42px;height:42px;border-radius:50%;background:rgba(255,255,255,0.22);display:flex;align-items:center;justify-content:center;font-size:1.15rem;flex-shrink:0;color:#fff}
-.footer-call .ftxt{display:flex;flex-direction:column;line-height:1.1;min-width:0;color:#fff;flex:1}
-.footer-call .lbl{display:block;font-size:.66rem;text-transform:uppercase;letter-spacing:.18em;opacity:.85;font-weight:600;font-family:'JetBrains Mono',monospace;margin-bottom:5px;color:#fff}
-.footer-call .num{display:block;font-family:'Inter Tight',sans-serif;font-weight:900;font-size:1.2rem;letter-spacing:-0.01em;white-space:nowrap;color:#fff}
-@media(max-width:380px){.footer-call .num{font-size:1.1rem}}
+
+/* === FOOTER CALL BUTTON — HIGH SPECIFICITY OVERRIDES === */
+/* `a.footer-call` (0,1,1) beats `.footer-col a` (0,1,1) by source order, plus !important for safety */
+.footer-col a.footer-call,
+a.footer-call{
+  display:flex !important;
+  flex-direction:row !important;
+  align-items:center !important;
+  gap:14px !important;
+  padding:16px 20px !important;
+  background:var(--grad-brand) !important;
+  color:#fff !important;
+  border-radius:16px !important;
+  box-shadow:0 12px 30px -10px var(--brand-glow) !important;
+  transition:transform .25s, box-shadow .25s !important;
+  width:100% !important;
+  max-width:340px !important;
+  text-decoration:none !important;
+  margin-top:4px !important;
+}
+.footer-col a.footer-call:hover,
+a.footer-call:hover{transform:translateY(-2px) !important;box-shadow:0 20px 40px -10px var(--brand-glow) !important;color:#fff !important}
+a.footer-call .icn{
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  width:44px !important;
+  height:44px !important;
+  border-radius:50% !important;
+  background:rgba(255,255,255,0.22) !important;
+  font-size:1.2rem !important;
+  flex:0 0 44px !important;
+  color:#fff !important;
+}
+a.footer-call .ftxt{
+  display:flex !important;
+  flex-direction:column !important;
+  align-items:flex-start !important;
+  justify-content:center !important;
+  line-height:1.15 !important;
+  min-width:0 !important;
+  flex:1 1 auto !important;
+}
+a.footer-call .lbl{
+  display:block !important;
+  font-size:.66rem !important;
+  text-transform:uppercase !important;
+  letter-spacing:.18em !important;
+  opacity:.9 !important;
+  font-weight:600 !important;
+  font-family:'JetBrains Mono',monospace !important;
+  margin-bottom:5px !important;
+  color:rgba(255,255,255,0.9) !important;
+}
+a.footer-call .num{
+  display:block !important;
+  font-family:'Inter Tight',sans-serif !important;
+  font-weight:900 !important;
+  font-size:1.2rem !important;
+  letter-spacing:-0.01em !important;
+  white-space:nowrap !important;
+  color:#fff !important;
+}
+@media(max-width:380px){a.footer-call .num{font-size:1.1rem !important}}
+
 .mob-cta{position:fixed;left:0;right:0;bottom:0;z-index:60;background:var(--ink);padding:14px 16px calc(14px + var(--safe-bottom));display:flex;gap:10px;border-top:1px solid rgba(255,255,255,0.08);backdrop-filter:blur(20px)}
 @media(min-width:920px){.mob-cta{display:none}}
 .mob-cta a{flex:1;padding:14px;border-radius:999px;text-align:center;font-weight:700;font-size:.98rem;min-height:50px;display:flex;align-items:center;justify-content:center;gap:8px;text-decoration:none}
 .mob-cta .call{background:var(--grad-brand);color:#fff}
 .mob-cta .text{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,0.2)}
-elevenlabs-convai{position:fixed;bottom:24px;right:24px;z-index:70}
-@media(max-width:899px){elevenlabs-convai{bottom:calc(92px + var(--safe-bottom));right:16px}}
+
+/* === ELEVENLABS WIDGET BRANDING — wrapper + always-visible LOREN AI credit === */
+.widget-stack{
+  position:fixed;
+  bottom:24px;
+  right:24px;
+  z-index:70;
+  display:flex;
+  flex-direction:column;
+  align-items:flex-end;
+  gap:8px;
+  pointer-events:none;
+}
+.widget-stack > *{pointer-events:auto}
+.widget-stack elevenlabs-convai{position:static !important;bottom:auto !important;right:auto !important}
+.widget-credit{
+  font-family:'JetBrains Mono',monospace;
+  font-size:.62rem;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:var(--muted);
+  background:#fff;
+  padding:6px 12px;
+  border-radius:999px;
+  border:1px solid rgba(200,132,61,0.2);
+  box-shadow:0 4px 14px -4px rgba(15,20,25,0.18);
+  text-decoration:none;
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  opacity:.92;
+  transition:all .2s;
+  white-space:nowrap;
+}
+.widget-credit:hover{opacity:1;border-color:var(--brand);color:var(--ink);transform:translateY(-1px)}
+.widget-credit .b{color:var(--brand-deep);font-weight:700}
+.widget-credit::after{content:'↗';opacity:.55;font-size:.7rem}
+@media(max-width:899px){
+  .widget-stack{bottom:calc(92px + var(--safe-bottom));right:16px;gap:6px}
+  .widget-credit{font-size:.58rem;padding:5px 10px}
+}
+
 .bg-alt-section{background:var(--bg-alt)}
 @media(prefers-reduced-motion:reduce){*{animation-duration:.01s !important;transition-duration:.01s !important}}
 html,body{max-width:100vw;overflow-x:hidden}
@@ -531,7 +627,7 @@ h3{font-size:clamp(1.25rem,5.5vw,1.7rem)}
 <div class="brand-mark"><span class="dot">H</span> HandyMan<span class="accent">Pro</span></div>
 <p class="desc">South Florida's fixed-price kitchen, bath, flooring, and restoration crew. One project manager. One warranty. A phone that always picks up.</p>
 <a href="tel:7542476766" class="footer-call">
-  <span class="icn">📞</span>
+  <span class="icn" aria-hidden="true">📞</span>
   <span class="ftxt">
     <span class="lbl">Call us anytime</span>
     <span class="num">(754) 247-6766</span>
@@ -553,7 +649,11 @@ h3{font-size:clamp(1.25rem,5.5vw,1.7rem)}
 <a href="sms:7542476766" class="text">💬 Text Us</a>
 </div>
 
-<elevenlabs-convai agent-id="agent_5301kse1jjqaevja3b7gjs3n0e12"></elevenlabs-convai>
+<!-- ELEVENLABS CONCIERGE WIDGET — wrapped so we control positioning + add LOREN AI credit below the bubble (always visible, never overlaps) -->
+<div class="widget-stack" id="widgetStack">
+  <elevenlabs-convai agent-id="agent_5301kse1jjqaevja3b7gjs3n0e12"></elevenlabs-convai>
+  <a href="https://ai-loren.com" target="_blank" rel="noopener" class="widget-credit">Powered by <span class="b">LOREN AI</span></a>
+</div>
 <script src="https://unpkg.com/@elevenlabs/convai-widget-embed" async type="text/javascript"></script>
 
 <script>
@@ -588,31 +688,62 @@ const cio=new IntersectionObserver(entries=>{entries.forEach(en=>{if(en.isInters
 counters.forEach(c=>cio.observe(c));
 document.querySelectorAll('.faq-q').forEach(q=>{q.addEventListener('click',()=>{const item=q.parentElement;document.querySelectorAll('.faq-item.open').forEach(o=>{if(o!==item)o.classList.remove('open')});item.classList.toggle('open');});});
 document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',e=>{const id=a.getAttribute('href');if(id&&id.length>1){const t=document.querySelector(id);if(t){e.preventDefault();const y=t.getBoundingClientRect().top+window.scrollY-90;window.scrollTo({top:y,behavior:'smooth'})}}});});
-function styleWidget(){
-  const w=document.querySelector('elevenlabs-convai');
-  if(!w||!w.shadowRoot)return false;
-  try{
-    if(!w.shadowRoot.querySelector('#hmp-brand-style')){
-      const style=document.createElement('style');
-      style.id='hmp-brand-style';
-      style.textContent='[class*="powered"],[class*="Powered"],[class*="branding"],[class*="Branding"],a[href*="elevenlabs"]{display:none !important}:host{--accent:#C8843D !important;--accent-hover:#8B5A1E !important}.loren-credit-injected{display:flex;justify-content:center;align-items:center;gap:6px;padding:10px 14px;margin-top:8px;font-family:monospace;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:#5C6470;text-decoration:none;background:rgba(200,132,61,0.06);border-top:1px solid rgba(200,132,61,0.18);border-radius:0 0 18px 18px;transition:all .2s}.loren-credit-injected:hover{background:rgba(200,132,61,0.14);color:#0F1419}.loren-credit-injected .b{color:#8B5A1E;font-weight:700}';
-      w.shadowRoot.appendChild(style);
+
+/* ====== WIDGET BRAND OVERRIDE: hide ElevenLabs branding + ensure LOREN AI credit visible ====== */
+/* Strategy: inject aggressive CSS into the shadow DOM that hides any "powered by elevenlabs"
+   element, AND inject our own LOREN AI credit link into the open panel. We use
+   MutationObserver so it survives any internal re-render. */
+function brandWidget(){
+  const widget = document.querySelector('elevenlabs-convai');
+  if(!widget || !widget.shadowRoot){ setTimeout(brandWidget, 400); return; }
+  const sr = widget.shadowRoot;
+  /* Inject our CSS once */
+  if(!sr.querySelector('#hmp-brand-style')){
+    const style=document.createElement('style');
+    style.id='hmp-brand-style';
+    style.textContent=
+      'a[href*="elevenlabs" i]{display:none !important;visibility:hidden !important}'+
+      '[class*="powered" i]{display:none !important;visibility:hidden !important}'+
+      '[class*="branding" i]{display:none !important;visibility:hidden !important}'+
+      '.loren-credit-injected{display:flex !important;justify-content:center !important;align-items:center !important;gap:6px !important;padding:10px 14px !important;margin-top:6px !important;font-family:ui-monospace,SFMono-Regular,Menlo,monospace !important;font-size:10px !important;letter-spacing:.18em !important;text-transform:uppercase !important;color:#5C6470 !important;text-decoration:none !important;background:rgba(200,132,61,0.06) !important;border-top:1px solid rgba(200,132,61,0.18) !important;transition:all .2s !important;cursor:pointer !important}'+
+      '.loren-credit-injected:hover{background:rgba(200,132,61,0.14) !important;color:#0F1419 !important}'+
+      '.loren-credit-injected .b{color:#8B5A1E !important;font-weight:700 !important}';
+    sr.appendChild(style);
+  }
+  /* Find the open panel and inject our credit as a footer */
+  function inject(){
+    const sr2 = widget.shadowRoot;
+    if(!sr2) return;
+    /* Try every reasonably-large block in the shadow DOM */
+    const all = sr2.querySelectorAll('div,section,aside');
+    for(let i=0;i<all.length;i++){
+      const el = all[i];
+      const r = el.getBoundingClientRect();
+      if(r.width > 220 && r.height > 180 && !el.querySelector('.loren-credit-injected')){
+        /* Skip if any of its descendants is also a big block (we want the innermost panel only) */
+        let hasBigChild=false;
+        for(let j=0;j<el.children.length;j++){
+          const cr=el.children[j].getBoundingClientRect();
+          if(cr.width>200 && cr.height>150){hasBigChild=true;break}
+        }
+        if(hasBigChild) continue;
+        const a=document.createElement('a');
+        a.className='loren-credit-injected';
+        a.href='https://ai-loren.com';
+        a.target='_blank';
+        a.rel='noopener';
+        a.innerHTML='Powered by <span class="b">LOREN AI</span> ↗';
+        el.appendChild(a);
+        break;
+      }
     }
-    const panel=w.shadowRoot.querySelector('[class*="convai-panel"],[role="dialog"],[class*="ConvaiPanel"],[class*="panel-container"]');
-    if(panel && !panel.querySelector('.loren-credit-injected')){
-      const a=document.createElement('a');
-      a.className='loren-credit-injected';
-      a.href='https://ai-loren.com';
-      a.target='_blank';
-      a.rel='noopener';
-      a.innerHTML='Powered by <span class="b">LOREN AI</span> &#8599;';
-      panel.appendChild(a);
-    }
-    return true;
-  }catch(e){return false}
+  }
+  inject();
+  /* React to any DOM changes (panel open/close, content updates) */
+  const mo = new MutationObserver(()=>{inject()});
+  mo.observe(sr, {childList:true, subtree:true});
 }
-let _wtries=0;
-const _wint=setInterval(()=>{styleWidget(); if(++_wtries>40)clearInterval(_wint)},800);
+brandWidget();
 </script>
 
 </body>
