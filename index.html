@@ -58,32 +58,17 @@ h4{font-size:clamp(1.25rem,1.8vw,1.6rem);line-height:1.15}
 .eyebrow{font-family:'JetBrains Mono',monospace;font-size:0.82rem;letter-spacing:0.24em;text-transform:uppercase;color:var(--brand);display:inline-flex;align-items:center;gap:14px;font-weight:500}
 .eyebrow::before{content:'';width:38px;height:1.5px;background:var(--brand)}
 .muted{color:var(--muted)}
-
-/* ============== SCROLL PROGRESS BAR ============== */
 .scroll-progress{position:fixed;top:0;left:0;height:3px;width:0%;background:linear-gradient(90deg,var(--brand-light),var(--brand),var(--brand-deep));z-index:200;transition:width .08s linear;box-shadow:0 0 10px var(--brand-glow)}
-
-/* ============== CURSOR SPOTLIGHT ============== */
 .cursor-spotlight{position:fixed;pointer-events:none;z-index:2;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle,rgba(200,132,61,0.18) 0%,rgba(200,132,61,0.06) 35%,transparent 70%);transform:translate(-50%,-50%);transition:opacity .3s;mix-blend-mode:multiply;opacity:0;will-change:transform}
 @media(hover:hover) and (pointer:fine){.cursor-spotlight{opacity:1}}
-
-/* ============== AMBIENT BACKGROUND ============== */
-body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;background:
-  radial-gradient(1200px 700px at 8% -10%,rgba(200,132,61,0.10),transparent 55%),
-  radial-gradient(1400px 800px at 100% 10%,rgba(200,132,61,0.05),transparent 60%),
-  radial-gradient(800px 400px at 50% 110%,rgba(232,178,87,0.06),transparent 60%)}
-body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;background-image:
-  linear-gradient(rgba(15,20,25,0.018) 1px,transparent 1px),
-  linear-gradient(90deg,rgba(15,20,25,0.018) 1px,transparent 1px);background-size:40px 40px;mask-image:radial-gradient(ellipse at center,#000 30%,transparent 80%);-webkit-mask-image:radial-gradient(ellipse at center,#000 30%,transparent 80%)}
+body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;background:radial-gradient(1200px 700px at 8% -10%,rgba(200,132,61,0.10),transparent 55%),radial-gradient(1400px 800px at 100% 10%,rgba(200,132,61,0.05),transparent 60%),radial-gradient(800px 400px at 50% 110%,rgba(232,178,87,0.06),transparent 60%)}
+body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;background-image:linear-gradient(rgba(15,20,25,0.018) 1px,transparent 1px),linear-gradient(90deg,rgba(15,20,25,0.018) 1px,transparent 1px);background-size:40px 40px;mask-image:radial-gradient(ellipse at center,#000 30%,transparent 80%);-webkit-mask-image:radial-gradient(ellipse at center,#000 30%,transparent 80%)}
 main,header,footer{position:relative;z-index:1}
-
-/* ============== LOADER ============== */
 .loader{position:fixed;inset:0;background:var(--bg);z-index:300;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:24px;transition:opacity .6s,visibility .6s}
 .loader.hidden{opacity:0;visibility:hidden}
 .loader-mark{width:90px;height:90px;border-radius:50%;background:var(--grad-brand);display:flex;align-items:center;justify-content:center;color:#fff;font-family:'Inter Tight';font-weight:900;font-size:2.6rem;box-shadow:var(--shadow-brand);animation:pulse-ring 1.6s ease-in-out infinite}
 @keyframes pulse-ring{0%,100%{transform:scale(1);box-shadow:0 0 0 0 var(--brand-glow)}50%{transform:scale(1.05);box-shadow:0 0 0 30px rgba(200,132,61,0)}}
 .loader-text{font-family:'JetBrains Mono';font-size:.78rem;letter-spacing:.3em;color:var(--muted);text-transform:uppercase}
-
-/* ============== NAV ============== */
 nav.top{position:sticky;top:0;z-index:50;backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);background:rgba(250,247,240,0.78);border-bottom:1px solid var(--line);transition:padding .25s,background .25s}
 nav.top.scrolled{background:rgba(250,247,240,0.95);box-shadow:0 8px 30px -16px rgba(15,20,25,0.10)}
 nav.top .row{display:flex;align-items:center;justify-content:space-between;height:84px;gap:14px}
@@ -101,8 +86,6 @@ nav .links a:hover::after{width:100%}
 @media(min-width:1100px){nav .links{display:flex}}
 nav .cta-phone{font-size:1rem;padding:14px 22px;min-height:54px}
 @media(min-width:600px){nav .cta-phone{font-size:1.1rem;padding:16px 28px;min-height:60px}}
-
-/* ============== BUTTONS ============== */
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:12px;padding:18px 28px;border-radius:999px;font-weight:700;font-size:1.05rem;min-height:58px;transition:transform .2s cubic-bezier(.2,.8,.2,1),box-shadow .25s,background .2s;white-space:nowrap;cursor:pointer;border:0;position:relative;overflow:hidden;letter-spacing:-0.01em}
 @media(min-width:768px){.btn{padding:22px 36px;font-size:1.15rem;min-height:64px}}
 .btn-primary{background:var(--grad-brand);color:#fff;box-shadow:var(--shadow-brand)}
@@ -116,8 +99,6 @@ nav .cta-phone{font-size:1rem;padding:14px 22px;min-height:54px}
 .btn .arrow{transition:transform .2s;font-size:1.3em}
 .btn:hover .arrow{transform:translateX(4px)}
 .magnetic{transition:transform .3s cubic-bezier(.2,.8,.2,1)}
-
-/* ============== HERO ============== */
 section.hero{padding:40px 0 60px;position:relative;overflow:hidden}
 @media(min-width:768px){section.hero{padding:80px 0 120px}}
 @media(min-width:1280px){section.hero{padding:120px 0 170px}}
@@ -140,8 +121,6 @@ section.hero{padding:40px 0 60px;position:relative;overflow:hidden}
 @media(min-width:768px){.hero-meta .item{font-size:.95rem}}
 .hero-meta .item .dot-g{width:8px;height:8px;border-radius:50%;background:var(--success);box-shadow:0 0 12px rgba(45,153,104,0.55);animation:pulse-dot 2s infinite;flex-shrink:0}
 @keyframes pulse-dot{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.4);opacity:.6}}
-
-/* Hero collage */
 .hero-collage{position:relative;height:420px;perspective:1400px;margin:0 -6px}
 @media(min-width:600px){.hero-collage{height:480px;margin:0}}
 @media(min-width:1024px){.hero-collage{height:640px}}
@@ -160,22 +139,15 @@ section.hero{padding:40px 0 60px;position:relative;overflow:hidden}
 .hero-collage .badge-pop{position:absolute;top:3%;right:2%;background:var(--ink);color:#fff;padding:8px 14px;border-radius:999px;font-family:'JetBrains Mono';font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;z-index:5;animation:wiggle 5s ease-in-out infinite;white-space:nowrap}
 @media(min-width:600px){.hero-collage .badge-pop{top:4%;right:-2%;padding:12px 18px;font-size:.78rem;letter-spacing:.16em}}
 @keyframes wiggle{0%,100%{transform:rotate(0)}50%{transform:rotate(-3deg)}}
-
 @keyframes rise{to{opacity:1;transform:translateY(0)}}
-
-/* Hero sparkles */
 .hero-bg-sparkle{position:absolute;inset:0;pointer-events:none;z-index:0}
 .hero-bg-sparkle .star{position:absolute;width:4px;height:4px;background:var(--brand);border-radius:50%;box-shadow:0 0 12px var(--brand-glow);animation:twinkle 3s ease-in-out infinite}
 @keyframes twinkle{0%,100%{opacity:0;transform:scale(0.5)}50%{opacity:1;transform:scale(1.8)}}
-
-/* ============== INFINITE MARQUEE ============== */
 .marquee{position:relative;overflow:hidden;padding:36px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--bg-alt);mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent);-webkit-mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent)}
 .marquee-track{display:flex;gap:64px;animation:marquee 38s linear infinite;width:max-content}
 .marquee-item{display:flex;align-items:center;gap:14px;font-family:'Inter Tight';font-weight:800;font-size:1.4rem;color:var(--ink);white-space:nowrap;opacity:.7}
 .marquee-item .star{color:var(--brand);font-size:1.8rem;line-height:1}
 @keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
-
-/* ============== SECTION BASE ============== */
 section{padding:60px 0;position:relative}
 @media(min-width:768px){section{padding:96px 0}}
 @media(min-width:1280px){section{padding:120px 0}}
@@ -186,8 +158,6 @@ section{padding:60px 0;position:relative}
 .section-header p{font-size:1.05rem;color:var(--muted);max-width:620px;line-height:1.55}
 @media(min-width:768px){.section-header p{font-size:1.15rem}}
 .center{text-align:center;margin-left:auto;margin-right:auto}
-
-/* Reveal */
 .reveal{opacity:0;transform:translateY(40px);transition:opacity .8s cubic-bezier(.2,.8,.2,1),transform .8s cubic-bezier(.2,.8,.2,1)}
 .reveal.in{opacity:1;transform:translateY(0)}
 .reveal[data-delay="1"]{transition-delay:.08s}
@@ -196,19 +166,10 @@ section{padding:60px 0;position:relative}
 .reveal[data-delay="4"]{transition-delay:.32s}
 .reveal[data-delay="5"]{transition-delay:.40s}
 .reveal[data-delay="6"]{transition-delay:.48s}
-
-/* SVG WAVE DIVIDER */
-.divider{display:block;width:100%;height:80px}
-.divider path{fill:var(--bg-alt)}
-.divider.flip{transform:scaleY(-1)}
-
-/* ============== VSL SECTION ============== */
 .vsl-wrap{position:relative;border-radius:var(--r-xl);overflow:hidden;box-shadow:var(--shadow-lg);aspect-ratio:16/9;background:#000}
 .vsl-wrap video{width:100%;height:100%;object-fit:cover;display:block}
 .vsl-shell{position:relative;border-radius:var(--r-xl);padding:8px;background:linear-gradient(135deg,var(--brand-light),var(--brand-deep));box-shadow:var(--shadow-lg)}
 .vsl-shell::before{content:'';position:absolute;inset:-40px;background:radial-gradient(closest-side,rgba(200,132,61,0.25),transparent 70%);z-index:-1;border-radius:50%;filter:blur(40px)}
-
-/* ============== SCRIPT SECTION (problem statement) ============== */
 .script-block{background:var(--ink);color:#fff;border-radius:var(--r-lg);padding:44px 22px;position:relative;overflow:hidden}
 @media(min-width:600px){.script-block{padding:56px 36px;border-radius:var(--r-xl)}}
 @media(min-width:768px){.script-block{padding:80px 56px}}
@@ -228,8 +189,6 @@ section{padding:60px 0;position:relative}
 .pain-card h4{color:#fff;margin-bottom:10px}
 .pain-card p{color:rgba(255,255,255,0.75);font-size:.98rem;line-height:1.55}
 .pain-card .stat{font-family:'Inter Tight';font-weight:900;font-size:3rem;color:var(--brand-light);line-height:1;margin-top:18px;display:block}
-
-/* ============== SERVICES — TILT CARDS ============== */
 .services-grid{display:grid;grid-template-columns:1fr;gap:28px;margin-top:48px}
 @media(min-width:640px){.services-grid{grid-template-columns:repeat(2,1fr)}}
 @media(min-width:1024px){.services-grid{grid-template-columns:repeat(4,1fr)}}
@@ -247,20 +206,16 @@ section{padding:60px 0;position:relative}
 .svc-card:hover .desc{max-height:120px;margin-bottom:10px}
 .svc-card .arrow-go{position:absolute;top:22px;right:22px;width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,0.15);backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.2rem;border:1px solid rgba(255,255,255,0.25);transition:all .3s;z-index:3}
 .svc-card:hover .arrow-go{background:#fff;color:var(--ink);transform:rotate(-45deg) scale(1.1)}
-
-/* ============== ADVANTAGES (3 col, large) ============== */
 .adv-grid{display:grid;grid-template-columns:1fr;gap:24px;margin-top:48px}
 @media(min-width:900px){.adv-grid{grid-template-columns:repeat(3,1fr);gap:32px}}
 .adv-card{background:var(--card);border:1px solid var(--line);border-radius:var(--r-lg);padding:40px 34px;transition:all .4s cubic-bezier(.2,.8,.2,1);position:relative;overflow:hidden}
 .adv-card:hover{border-color:var(--brand);transform:translateY(-6px);box-shadow:var(--shadow)}
 .adv-card::before{content:'';position:absolute;top:0;left:0;width:100%;height:4px;background:var(--grad-brand);transform:scaleX(0);transform-origin:left;transition:transform .5s cubic-bezier(.2,.8,.2,1)}
 .adv-card:hover::before{transform:scaleX(1)}
-.adv-card .num{font-family:'Inter Tight';font-weight:900;font-size:3.6rem;color:var(--brand);line-height:1;display:block;margin-bottom:14px;background:var(--grad-brand);-webkit-background-clip:text;background-clip:text;color:transparent}
+.adv-card .num{font-family:'Inter Tight';font-weight:900;font-size:3.6rem;line-height:1;display:block;margin-bottom:14px;background:var(--grad-brand);-webkit-background-clip:text;background-clip:text;color:transparent}
 .adv-card h3{margin-bottom:14px}
 .adv-card p{color:var(--muted);font-size:1.02rem;line-height:1.6}
 .adv-card .tag{display:inline-block;margin-top:22px;padding:8px 14px;background:var(--bg-alt);border-radius:999px;font-family:'JetBrains Mono';font-size:.75rem;letter-spacing:.16em;color:var(--brand);font-weight:600;text-transform:uppercase}
-
-/* ============== STATS COUNTER STRIP ============== */
 .stats-strip{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;padding:32px 18px;background:var(--ink);color:#fff;border-radius:var(--r-lg);margin-top:44px;position:relative;overflow:hidden}
 @media(min-width:600px){.stats-strip{gap:24px;padding:48px 32px;border-radius:var(--r-xl);margin-top:60px}}
 @media(min-width:768px){.stats-strip{grid-template-columns:repeat(4,1fr);padding:64px 48px}}
@@ -269,8 +224,6 @@ section{padding:60px 0;position:relative}
 .stat-cell .num{font-family:'Inter Tight';font-weight:900;font-size:clamp(2.1rem,5vw,4rem);background:linear-gradient(180deg,#fff,var(--brand-light));-webkit-background-clip:text;background-clip:text;color:transparent;line-height:1;display:block;margin-bottom:8px}
 .stat-cell .lbl{font-size:.74rem;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:.14em;font-weight:500;line-height:1.3}
 @media(min-width:768px){.stat-cell .lbl{font-size:.88rem;letter-spacing:.16em}}
-
-/* ============== PORTFOLIO BENTO ============== */
 .bento{display:grid;grid-template-columns:1fr;gap:14px;margin-top:48px}
 @media(min-width:768px){.bento{grid-template-columns:repeat(6,1fr);grid-auto-rows:180px;gap:18px}}
 .bento-cell{position:relative;border-radius:var(--r-lg);overflow:hidden;cursor:pointer;transition:all .5s cubic-bezier(.2,.8,.2,1);box-shadow:var(--shadow-sm);min-height:240px}
@@ -283,16 +236,7 @@ section{padding:60px 0;position:relative}
 .bento-cell:hover .tag{opacity:1;transform:translateY(0)}
 .bento-cell .pin{position:absolute;top:16px;right:16px;width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,0.9);display:flex;align-items:center;justify-content:center;font-size:1rem;color:var(--brand);opacity:0;transform:scale(.5);transition:all .4s;z-index:2}
 .bento-cell:hover .pin{opacity:1;transform:scale(1)}
-@media(min-width:768px){
-  .bento .b1{grid-column:span 4;grid-row:span 2}
-  .bento .b2{grid-column:span 2;grid-row:span 1}
-  .bento .b3{grid-column:span 2;grid-row:span 1}
-  .bento .b4{grid-column:span 2;grid-row:span 2}
-  .bento .b5{grid-column:span 2;grid-row:span 1}
-  .bento .b6{grid-column:span 2;grid-row:span 1}
-}
-
-/* ============== TIMELINE (How it works) ============== */
+@media(min-width:768px){.bento .b1{grid-column:span 4;grid-row:span 2}.bento .b2{grid-column:span 2;grid-row:span 1}.bento .b3{grid-column:span 2;grid-row:span 1}.bento .b4{grid-column:span 2;grid-row:span 2}.bento .b5{grid-column:span 2;grid-row:span 1}.bento .b6{grid-column:span 2;grid-row:span 1}}
 .timeline{position:relative;margin-top:48px;padding-left:8px}
 .timeline::before{content:'';position:absolute;left:24px;top:8px;bottom:8px;width:2px;background:var(--line-strong)}
 @media(min-width:768px){.timeline::before{left:50%;transform:translateX(-1px)}}
@@ -306,8 +250,6 @@ section{padding:60px 0;position:relative}
 .tl-num{font-family:'JetBrains Mono';font-size:.85rem;letter-spacing:.2em;color:var(--brand);font-weight:600;text-transform:uppercase}
 .tl-content h3{margin-bottom:10px}
 .tl-content p{color:var(--muted);font-size:1rem;line-height:1.6}
-
-/* ============== TESTIMONIALS ============== */
 .test-grid{display:grid;grid-template-columns:1fr;gap:24px;margin-top:48px}
 @media(min-width:768px){.test-grid{grid-template-columns:repeat(2,1fr)}}
 @media(min-width:1100px){.test-grid{grid-template-columns:repeat(3,1fr)}}
@@ -320,15 +262,11 @@ section{padding:60px 0;position:relative}
 .test-card .person .meta{display:flex;flex-direction:column}
 .test-card .person .name{font-weight:700;font-size:.98rem}
 .test-card .person .city{font-size:.85rem;color:var(--muted)}
-
-/* ============== CTA BLOCK ============== */
 .cta-mega{background:var(--grad-brand);border-radius:var(--r-lg);padding:48px 22px;color:#fff;text-align:center;position:relative;overflow:hidden}
 @media(min-width:600px){.cta-mega{padding:60px 36px;border-radius:var(--r-xl)}}
 @media(min-width:768px){.cta-mega{padding:80px 56px}}
 @media(min-width:1024px){.cta-mega{padding:96px 64px}}
-.cta-mega::before{content:'';position:absolute;inset:0;background:
-  radial-gradient(circle at 20% 30%,rgba(255,255,255,0.18),transparent 50%),
-  radial-gradient(circle at 80% 70%,rgba(0,0,0,0.15),transparent 50%);z-index:0}
+.cta-mega::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 20% 30%,rgba(255,255,255,0.18),transparent 50%),radial-gradient(circle at 80% 70%,rgba(0,0,0,0.15),transparent 50%);z-index:0}
 .cta-mega::after{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,0.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.05) 1px,transparent 1px);background-size:40px 40px;mask-image:radial-gradient(ellipse at center,#000,transparent 70%);-webkit-mask-image:radial-gradient(ellipse at center,#000,transparent 70%);z-index:0}
 .cta-mega > *{position:relative;z-index:1}
 .cta-mega h2{color:#fff;margin-bottom:16px;font-size:clamp(1.9rem,5vw,4.2rem)}
@@ -337,8 +275,6 @@ section{padding:60px 0;position:relative}
 @media(min-width:768px){.cta-mega p{font-size:1.2rem;margin:0 auto 36px}}
 .cta-mega .btn{background:#fff;color:var(--ink)}
 .cta-mega .btn:hover{background:var(--ink);color:#fff;transform:translateY(-3px) scale(1.02)}
-
-/* ============== FAQ ============== */
 .faq-list{margin-top:48px;max-width:920px;margin-left:auto;margin-right:auto}
 .faq-item{border-bottom:1px solid var(--line);padding:8px 0}
 .faq-q{width:100%;background:transparent;border:0;text-align:left;padding:24px 0;display:flex;align-items:center;justify-content:space-between;gap:24px;cursor:pointer;font-family:'Inter Tight';font-weight:700;font-size:clamp(1.1rem,1.6vw,1.35rem);color:var(--ink);transition:color .25s}
@@ -348,8 +284,6 @@ section{padding:60px 0;position:relative}
 .faq-a{max-height:0;overflow:hidden;transition:max-height .5s cubic-bezier(.2,.8,.2,1)}
 .faq-a-inner{padding:0 0 24px;color:var(--muted);font-size:1.05rem;line-height:1.65;max-width:780px}
 .faq-item.open .faq-a{max-height:300px}
-
-/* ============== FOOTER ============== */
 footer{background:var(--ink);color:#fff;padding:56px 0 28px;margin-top:48px;position:relative;overflow:hidden}
 @media(min-width:768px){footer{padding:80px 0 32px;margin-top:64px}}
 footer::before{content:'';position:absolute;top:-100px;left:50%;transform:translateX(-50%);width:600px;height:200px;background:radial-gradient(ellipse,var(--brand-glow),transparent 60%);filter:blur(40px)}
@@ -362,718 +296,328 @@ footer::before{content:'';position:absolute;top:-100px;left:50%;transform:transl
 .footer-col .brand-mark{color:#fff;font-size:1.6rem;margin-bottom:18px}
 .footer-col .brand-mark .accent{color:var(--brand-light)}
 .footer-col .desc{color:rgba(255,255,255,0.6);font-size:.95rem;line-height:1.6;margin-bottom:18px;max-width:340px}
-.footer-bot{border-top:1px solid rgba(255,255,255,0.1);padding-top:28px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:18px;font-size:.88rem;color:rgba(255,255,255,0.5);position:relative;z-index:1}
-.footer-bot .powered{font-family:'JetBrains Mono';letter-spacing:.16em;text-transform:uppercase}
+.footer-bot{border-top:1px solid rgba(255,255,255,0.1);padding-top:28px;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:18px;font-size:.88rem;color:rgba(255,255,255,0.5);position:relative;z-index:1}
+.footer-bot .powered{font-family:'JetBrains Mono';letter-spacing:.16em;text-transform:uppercase;display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border-radius:999px;background:rgba(200,132,61,0.08);border:1px solid rgba(200,132,61,0.18);color:rgba(255,255,255,0.7);transition:all .25s;font-size:.78rem}
+.footer-bot .powered:hover{background:rgba(200,132,61,0.18);border-color:var(--brand);transform:translateY(-2px);color:#fff}
 .footer-bot .powered .b{color:var(--brand-light);font-weight:700}
-
-/* ============== MOBILE STICKY CTA ============== */
+.footer-bot .powered .arr{font-size:.85rem;opacity:.7;transition:transform .2s}
+.footer-bot .powered:hover .arr{transform:translate(2px,-2px);opacity:1}
+.footer-call{display:flex;align-items:center;gap:14px;margin-top:8px;padding:14px 18px;background:var(--grad-brand);color:#fff;border-radius:14px;box-shadow:0 12px 30px -10px var(--brand-glow);transition:all .25s cubic-bezier(.2,.8,.2,1);max-width:100%;overflow:hidden}
+.footer-call:hover{transform:translateY(-3px);box-shadow:0 20px 40px -10px var(--brand-glow)}
+.footer-call .icn{width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,0.18);display:flex;align-items:center;justify-content:center;font-size:1.15rem;flex-shrink:0}
+.footer-call .ftxt{display:flex;flex-direction:column;line-height:1.1;min-width:0}
+.footer-call .lbl{font-size:.68rem;text-transform:uppercase;letter-spacing:.18em;opacity:.85;font-weight:600;font-family:'JetBrains Mono'}
+.footer-call .num{font-family:'Inter Tight';font-weight:900;font-size:1.25rem;letter-spacing:-0.01em;margin-top:3px}
+@media(max-width:380px){.footer-call .num{font-size:1.1rem}}
 .mob-cta{position:fixed;left:0;right:0;bottom:0;z-index:60;background:var(--ink);padding:14px 16px calc(14px + var(--safe-bottom));display:flex;gap:10px;border-top:1px solid rgba(255,255,255,0.08);backdrop-filter:blur(20px)}
 @media(min-width:920px){.mob-cta{display:none}}
 .mob-cta a{flex:1;padding:14px;border-radius:999px;text-align:center;font-weight:700;font-size:.98rem;min-height:50px;display:flex;align-items:center;justify-content:center;gap:8px}
 .mob-cta .call{background:var(--grad-brand);color:#fff}
 .mob-cta .text{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,0.2)}
-
-/* ============== ELEVENLABS WIDGET BRANDING ============== */
 elevenlabs-convai{position:fixed;bottom:24px;right:24px;z-index:70}
 @media(max-width:899px){elevenlabs-convai{bottom:calc(92px + var(--safe-bottom));right:16px}}
-.brand-widget-launcher{position:fixed;bottom:24px;right:24px;z-index:71;width:64px;height:64px;border-radius:50%;background:var(--grad-brand);box-shadow:var(--shadow-brand);display:flex;align-items:center;justify-content:center;cursor:pointer;border:0;animation:bob 3s ease-in-out infinite;transition:transform .25s}
-.brand-widget-launcher:hover{transform:scale(1.08)}
-.brand-widget-launcher img{width:48px;height:48px;border-radius:50%}
-@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
-.brand-widget-launcher .pulse{position:absolute;inset:0;border-radius:50%;border:2px solid var(--brand);animation:expand 2.4s ease-out infinite}
-@keyframes expand{0%{transform:scale(1);opacity:.8}100%{transform:scale(1.7);opacity:0}}
-
-/* ============== VARIOUS ============== */
+.loren-pill{position:fixed;right:24px;bottom:96px;z-index:72;font-family:'JetBrains Mono',monospace;font-size:.65rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);padding:7px 12px;border-radius:999px;background:rgba(255,255,255,0.95);backdrop-filter:blur(8px);border:1px solid rgba(200,132,61,0.2);box-shadow:0 6px 18px -8px rgba(15,20,25,0.18);text-decoration:none;display:inline-flex;align-items:center;gap:6px;transition:all .25s;opacity:.85}
+.loren-pill:hover{opacity:1;border-color:var(--brand);transform:translateY(-2px);box-shadow:0 10px 24px -8px var(--brand-glow)}
+.loren-pill .b{color:var(--brand-deep);font-weight:700}
+.loren-pill::after{content:'↗';opacity:.6;font-size:.7rem}
+@media(max-width:899px){.loren-pill{bottom:calc(166px + var(--safe-bottom));right:16px;font-size:.6rem;padding:6px 10px}}
 .bg-alt-section{background:var(--bg-alt)}
-.no-anim{animation:none !important;transition:none !important}
-@media(prefers-reduced-motion:reduce){
-  *{animation-duration:.01s !important;transition-duration:.01s !important}
-}
-
-/* ============== MOBILE SAFETY BELT ============== */
+@media(prefers-reduced-motion:reduce){*{animation-duration:.01s !important;transition-duration:.01s !important}}
 html,body{max-width:100vw;overflow-x:hidden}
 img{height:auto}
 @media(max-width:640px){
-  .hero-actions .btn{width:100%;justify-content:center}
-  .hero-actions .btn-ghost{order:2}
-  .btn{padding:16px 22px;font-size:1rem;min-height:54px}
-  nav.top .row{height:72px;gap:8px}
-  nav.top.scrolled .row{height:64px}
-  nav .cta-phone{font-size:.88rem;padding:11px 16px;min-height:46px}
-  .brand-mark{font-size:1.2rem;gap:9px}
-  .brand-mark .dot{width:32px;height:32px;font-size:1rem}
-  h1{font-size:clamp(2.4rem,9vw,3.4rem)}
-  h2{font-size:clamp(1.85rem,7.5vw,2.6rem)}
-  h3{font-size:clamp(1.25rem,5.5vw,1.7rem)}
-  .container{padding:0 18px}
-  .adv-card{padding:30px 24px}
-  .adv-card .num{font-size:2.6rem}
-  .pain-card .stat{font-size:2.4rem;margin-top:14px}
-  .test-card{padding:26px 22px}
-  .test-card .quote{font-size:1rem;margin:14px 0 18px}
-  .footer-col .brand-mark{font-size:1.35rem}
-  .mob-cta a{font-size:.94rem}
-  .marquee{padding:24px 0}
-  .marquee-item{font-size:1.1rem}
-  .marquee-track{gap:42px}
-  .faq-q{padding:18px 0;gap:14px}
-  .faq-q .toggle{width:32px;height:32px;font-size:1.2rem}
-  .faq-a-inner{font-size:.98rem;padding-bottom:18px}
-  .svc-card{height:320px}
-  .svc-card .content{padding:22px}
-  .tl-item{padding:0 0 40px 56px}
-  .stats-strip{margin-top:36px}
-  .vsl-shell{padding:5px;border-radius:var(--r-lg)}
-  .vsl-wrap{border-radius:var(--r)}
-  .timeline{padding-left:4px}
-  .timeline::before{left:18px}
-  .timeline-fill{left:18px}
-  .tl-item::before{left:8px;width:20px;height:20px}
-  .hero-meta{gap:10px 18px}
-  .hero-meta .item{font-size:.82rem}
+.hero-actions .btn{width:100%;justify-content:center}
+.hero-actions .btn-ghost{order:2}
+.btn{padding:16px 22px;font-size:1rem;min-height:54px}
+nav.top .row{height:72px;gap:8px}
+nav.top.scrolled .row{height:64px}
+nav .cta-phone{font-size:.88rem;padding:11px 16px;min-height:46px}
+.brand-mark{font-size:1.2rem;gap:9px}
+.brand-mark .dot{width:32px;height:32px;font-size:1rem}
+h1{font-size:clamp(2.4rem,9vw,3.4rem)}
+h2{font-size:clamp(1.85rem,7.5vw,2.6rem)}
+h3{font-size:clamp(1.25rem,5.5vw,1.7rem)}
+.container{padding:0 18px}
+.adv-card{padding:30px 24px}
+.adv-card .num{font-size:2.6rem}
+.pain-card .stat{font-size:2.4rem;margin-top:14px}
+.test-card{padding:26px 22px}
+.test-card .quote{font-size:1rem;margin:14px 0 18px}
+.footer-col .brand-mark{font-size:1.35rem}
+.mob-cta a{font-size:.94rem}
+.marquee{padding:24px 0}
+.marquee-item{font-size:1.1rem}
+.marquee-track{gap:42px}
+.faq-q{padding:18px 0;gap:14px}
+.faq-q .toggle{width:32px;height:32px;font-size:1.2rem}
+.faq-a-inner{font-size:.98rem;padding-bottom:18px}
+.svc-card{height:320px}
+.svc-card .content{padding:22px}
+.tl-item{padding:0 0 40px 56px}
+.stats-strip{margin-top:36px}
+.vsl-shell{padding:5px;border-radius:var(--r-lg)}
+.vsl-wrap{border-radius:var(--r)}
+.timeline{padding-left:4px}
+.timeline::before{left:18px}
+.timeline-fill{left:18px}
+.tl-item::before{left:8px;width:20px;height:20px}
+.hero-meta{gap:10px 18px}
+.hero-meta .item{font-size:.82rem}
 }
 @media(max-width:380px){
-  .hero-collage{height:380px}
-  .hero-collage .badge-pop{font-size:.6rem;padding:7px 11px}
-  .hero-collage .stat-card{padding:10px 13px}
-  .hero-collage .stat-card .num{font-size:1.25rem}
+.hero-collage{height:380px}
+.hero-collage .badge-pop{font-size:.6rem;padding:7px 11px}
+.hero-collage .stat-card{padding:10px 13px}
+.hero-collage .stat-card .num{font-size:1.25rem}
 }
 </style>
 </head>
 <body>
 
-<!-- LOADER -->
-<div class="loader" id="loader">
-  <div class="loader-mark">H</div>
-  <div class="loader-text">HandyMan Pro · South Florida</div>
-</div>
-
-<!-- SCROLL PROGRESS -->
+<div class="loader" id="loader"><div class="loader-mark">H</div><div class="loader-text">HandyMan Pro · South Florida</div></div>
 <div class="scroll-progress" id="progress"></div>
-
-<!-- CURSOR SPOTLIGHT -->
 <div class="cursor-spotlight" id="spotlight"></div>
 
-<!-- NAV -->
-<nav class="top" id="nav">
-  <div class="container">
-    <div class="row">
-      <a href="#top" class="brand-mark"><span class="dot">H</span> HandyMan<span class="accent">Pro</span></a>
-      <div class="links">
-        <a href="#services">Services</a>
-        <a href="#advantages">Why Us</a>
-        <a href="#portfolio">Portfolio</a>
-        <a href="#how">Process</a>
-        <a href="#faq">FAQ</a>
-      </div>
-      <a href="tel:7542476766" class="btn btn-primary cta-phone magnetic"><span>Call (754) 247-6766</span></a>
-    </div>
-  </div>
-</nav>
+<nav class="top" id="nav"><div class="container"><div class="row">
+<a href="#top" class="brand-mark"><span class="dot">H</span> HandyMan<span class="accent">Pro</span></a>
+<div class="links"><a href="#services">Services</a><a href="#advantages">Why Us</a><a href="#portfolio">Portfolio</a><a href="#how">Process</a><a href="#faq">FAQ</a></div>
+<a href="tel:7542476766" class="btn btn-primary cta-phone magnetic"><span>Call (754) 247-6766</span></a>
+</div></div></nav>
 
 <main id="top">
 
-<!-- HERO -->
 <section class="hero">
-  <div class="hero-bg-sparkle" id="sparkles"></div>
-  <div class="container">
-    <div class="hero-grid">
-      <div class="hero-content">
-        <span class="eyebrow reveal in">Weston · Pembroke Pines · Davie</span>
-        <h1>
-          <span class="word" style="animation-delay:.05s">Remodels</span>
-          <span class="word" style="animation-delay:.15s">that</span>
-          <span class="word" style="animation-delay:.25s">finish.</span><br>
-          <span class="word accent" style="animation-delay:.4s">Crews</span>
-          <span class="word accent" style="animation-delay:.5s">that</span>
-          <span class="word accent" style="animation-delay:.6s">show.</span><br>
-          <span class="word" style="animation-delay:.75s">Prices</span>
-          <span class="word" style="animation-delay:.85s">that</span>
-          <span class="word" style="animation-delay:.95s">hold.</span>
-        </h1>
-        <p class="lead reveal" data-delay="2">One project manager, one crew, one warranty. South Florida kitchen and bath remodels done in days, not months — with a phone that always picks up.</p>
-        <div class="hero-actions reveal" data-delay="3">
-          <a href="tel:7542476766" class="btn btn-primary magnetic"><span>Get My Fixed Price</span><span class="arrow">→</span></a>
-          <a href="#vsl" class="btn btn-ghost magnetic"><span>▶ Watch 90s Video</span></a>
-        </div>
-        <div class="hero-meta reveal" data-delay="4">
-          <div class="item"><span class="dot-g"></span> AI Concierge live 24/7</div>
-          <div class="item">★★★★★ 5.0 Google</div>
-          <div class="item">Licensed · Insured · Bonded</div>
-        </div>
-      </div>
-      <div class="hero-collage" id="collage">
-        <div class="card c1" data-parallax="0.06"><img src="https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=1200&q=80" alt="Luxury bathroom remodel" loading="eager"/></div>
-        <div class="card c2" data-parallax="0.10"><img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1200&q=80" alt="Kitchen remodel"/></div>
-        <div class="card c3" data-parallax="0.14"><img src="https://images.unsplash.com/photo-1581858726788-75bc0f6a952d?w=900&q=80" alt="Flooring install"/></div>
-        <div class="stat-card" data-parallax="0.04">
-          <div>
-            <div class="num">48hrs</div>
-            <div class="lbl">to break<br>ground</div>
-          </div>
-        </div>
-        <div class="badge-pop" data-parallax="0.08">12-mo Warranty</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- MARQUEE -->
-<div class="marquee">
-  <div class="marquee-track">
-    <div class="marquee-item">Fixed Price <span class="star">✦</span></div>
-    <div class="marquee-item">One Crew <span class="star">✦</span></div>
-    <div class="marquee-item">48 Hours to Start <span class="star">✦</span></div>
-    <div class="marquee-item">12-Month Warranty <span class="star">✦</span></div>
-    <div class="marquee-item">Phone Always Picks Up <span class="star">✦</span></div>
-    <div class="marquee-item">English · Español <span class="star">✦</span></div>
-    <div class="marquee-item">Licensed & Insured <span class="star">✦</span></div>
-    <div class="marquee-item">Zero Change Orders <span class="star">✦</span></div>
-    <div class="marquee-item">Fixed Price <span class="star">✦</span></div>
-    <div class="marquee-item">One Crew <span class="star">✦</span></div>
-    <div class="marquee-item">48 Hours to Start <span class="star">✦</span></div>
-    <div class="marquee-item">12-Month Warranty <span class="star">✦</span></div>
-    <div class="marquee-item">Phone Always Picks Up <span class="star">✦</span></div>
-    <div class="marquee-item">English · Español <span class="star">✦</span></div>
-    <div class="marquee-item">Licensed & Insured <span class="star">✦</span></div>
-    <div class="marquee-item">Zero Change Orders <span class="star">✦</span></div>
-  </div>
+<div class="hero-bg-sparkle" id="sparkles"></div>
+<div class="container"><div class="hero-grid">
+<div class="hero-content">
+<span class="eyebrow reveal in">Weston · Pembroke Pines · Davie</span>
+<h1>
+<span class="word" style="animation-delay:.05s">Remodels</span> <span class="word" style="animation-delay:.15s">that</span> <span class="word" style="animation-delay:.25s">finish.</span><br>
+<span class="word accent" style="animation-delay:.4s">Crews</span> <span class="word accent" style="animation-delay:.5s">that</span> <span class="word accent" style="animation-delay:.6s">show.</span><br>
+<span class="word" style="animation-delay:.75s">Prices</span> <span class="word" style="animation-delay:.85s">that</span> <span class="word" style="animation-delay:.95s">hold.</span>
+</h1>
+<p class="lead reveal" data-delay="2">One project manager, one crew, one warranty. South Florida kitchen and bath remodels done in days, not months — with a phone that always picks up.</p>
+<div class="hero-actions reveal" data-delay="3">
+<a href="tel:7542476766" class="btn btn-primary magnetic"><span>Get My Fixed Price</span><span class="arrow">→</span></a>
+<a href="#vsl" class="btn btn-ghost magnetic"><span>▶ Watch 90s Video</span></a>
 </div>
-
-<!-- VSL SECTION -->
-<section id="vsl">
-  <div class="container">
-    <div class="section-header center reveal">
-      <span class="eyebrow">90-second story</span>
-      <h2>Why South Florida is firing their old contractor.</h2>
-      <p class="muted">Watch what we built for homeowners who were tired of three-week delays, "I'll call you back," and surprise invoices.</p>
-    </div>
-    <div class="vsl-shell reveal" data-delay="1">
-      <div class="vsl-wrap">
-        <video controls poster="https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=1600&q=80" preload="metadata" playsinline>
-          <source src="video/handymanpro-vsl.mp4" type="video/mp4">
-        </video>
-      </div>
-    </div>
-  </div>
+<div class="hero-meta reveal" data-delay="4">
+<div class="item"><span class="dot-g"></span> AI Concierge live 24/7</div>
+<div class="item">★★★★★ 5.0 Google</div>
+<div class="item">Licensed · Insured · Bonded</div>
+</div>
+</div>
+<div class="hero-collage" id="collage">
+<div class="card c1" data-parallax="0.06"><img src="https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=1200&q=80" alt="Luxury bathroom remodel" loading="eager"/></div>
+<div class="card c2" data-parallax="0.10"><img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1200&q=80" alt="Kitchen remodel"/></div>
+<div class="card c3" data-parallax="0.14"><img src="https://images.unsplash.com/photo-1581858726788-75bc0f6a952d?w=900&q=80" alt="Flooring install"/></div>
+<div class="stat-card" data-parallax="0.04"><div><div class="num">48hrs</div><div class="lbl">to break<br>ground</div></div></div>
+<div class="badge-pop" data-parallax="0.08">12-mo Warranty</div>
+</div>
+</div></div>
 </section>
 
-<!-- THE SCRIPT (Problem) -->
-<section>
-  <div class="container">
-    <div class="script-block reveal">
-      <span class="eyebrow">The South Florida script</span>
-      <h2>Every homeowner here knows the routine.</h2>
-      <p class="muted" style="color:rgba(255,255,255,0.75);font-size:1.15rem;max-width:640px;margin-top:18px">You call three contractors. Two never call back. The third shows up a week late, gives you a price that doubles, and disappears mid-job. We ended that.</p>
-      <div class="pain-grid">
-        <div class="pain-card">
-          <span class="icon">📞</span>
-          <h4>Phones that don't ring back</h4>
-          <p>Most contractors lose 73% of leads to bad callbacks. We answer in under 60 seconds — even at 2am.</p>
-          <span class="stat">73%</span>
-        </div>
-        <div class="pain-card">
-          <span class="icon">💸</span>
-          <h4>Quotes that change mid-job</h4>
-          <p>The original estimate triples. The "small surprise" becomes a $4,000 line item. Not here. Fixed price, in writing, locked.</p>
-          <span class="stat">$0</span>
-        </div>
-        <div class="pain-card">
-          <span class="icon">⏳</span>
-          <h4>Jobs that drag on forever</h4>
-          <p>A weekend job becomes a six-week mess. We start in 48 hours and finish on the day we promised.</p>
-          <span class="stat">48h</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+<div class="marquee"><div class="marquee-track">
+<div class="marquee-item">Fixed Price <span class="star">✦</span></div>
+<div class="marquee-item">One Crew <span class="star">✦</span></div>
+<div class="marquee-item">48 Hours to Start <span class="star">✦</span></div>
+<div class="marquee-item">12-Month Warranty <span class="star">✦</span></div>
+<div class="marquee-item">Phone Always Picks Up <span class="star">✦</span></div>
+<div class="marquee-item">English · Español <span class="star">✦</span></div>
+<div class="marquee-item">Licensed & Insured <span class="star">✦</span></div>
+<div class="marquee-item">Zero Change Orders <span class="star">✦</span></div>
+<div class="marquee-item">Fixed Price <span class="star">✦</span></div>
+<div class="marquee-item">One Crew <span class="star">✦</span></div>
+<div class="marquee-item">48 Hours to Start <span class="star">✦</span></div>
+<div class="marquee-item">12-Month Warranty <span class="star">✦</span></div>
+<div class="marquee-item">Phone Always Picks Up <span class="star">✦</span></div>
+<div class="marquee-item">English · Español <span class="star">✦</span></div>
+<div class="marquee-item">Licensed & Insured <span class="star">✦</span></div>
+<div class="marquee-item">Zero Change Orders <span class="star">✦</span></div>
+</div></div>
 
-<!-- SERVICES -->
-<section id="services" class="bg-alt-section">
-  <div class="container">
-    <div class="section-header reveal">
-      <span class="eyebrow">What we build</span>
-      <h2>Four specialties.<br>Done by one crew.</h2>
-      <p class="muted">No subcontractor hand-offs, no "that's not my guy." Measure to handshake — same team, same standard.</p>
-    </div>
-    <div class="services-grid">
-      <div class="svc-card reveal" data-delay="1">
-        <div class="bg" style="background-image:url('https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=900&q=80')"></div>
-        <div class="overlay"></div>
-        <div class="brand-flood"></div>
-        <div class="arrow-go">→</div>
-        <div class="content">
-          <div class="num">01 · KITCHENS</div>
-          <h3>Kitchen Remodels</h3>
-          <p class="desc">Cabinets, counters, backsplash, flooring, electrical, plumbing. Permits included.</p>
-        </div>
-      </div>
-      <div class="svc-card reveal" data-delay="2">
-        <div class="bg" style="background-image:url('https://images.unsplash.com/photo-1620626011761-996317b8d101?w=900&q=80')"></div>
-        <div class="overlay"></div>
-        <div class="brand-flood"></div>
-        <div class="arrow-go">→</div>
-        <div class="content">
-          <div class="num">02 · BATHS</div>
-          <h3>Bathroom Remodels</h3>
-          <p class="desc">Tub-to-shower conversions, vanities, tile, fixtures, full luxury rebuilds.</p>
-        </div>
-      </div>
-      <div class="svc-card reveal" data-delay="3">
-        <div class="bg" style="background-image:url('https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=900&q=80')"></div>
-        <div class="overlay"></div>
-        <div class="brand-flood"></div>
-        <div class="arrow-go">→</div>
-        <div class="content">
-          <div class="num">03 · FLOORS</div>
-          <h3>Flooring & Tile</h3>
-          <p class="desc">Porcelain, hardwood, LVP, demolition and subfloor included.</p>
-        </div>
-      </div>
-      <div class="svc-card reveal" data-delay="4">
-        <div class="bg" style="background-image:url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=900&q=80')"></div>
-        <div class="overlay"></div>
-        <div class="brand-flood"></div>
-        <div class="arrow-go">→</div>
-        <div class="content">
-          <div class="num">04 · RESTORATION</div>
-          <h3>Water & Damage</h3>
-          <p class="desc">Leak repair, mold remediation, drywall, paint. Emergency response.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+<section id="vsl"><div class="container">
+<div class="section-header center reveal"><span class="eyebrow">90-second story</span><h2>Why South Florida is firing their old contractor.</h2><p class="muted">Watch what we built for homeowners who were tired of three-week delays, "I'll call you back," and surprise invoices.</p></div>
+<div class="vsl-shell reveal" data-delay="1"><div class="vsl-wrap"><video controls poster="https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=1600&q=80" preload="metadata" playsinline><source src="video/handymanpro-vsl.mp4" type="video/mp4"></video></div></div>
+</div></section>
 
-<!-- ADVANTAGES -->
-<section id="advantages">
-  <div class="container">
-    <div class="section-header reveal">
-      <span class="eyebrow">The unfair advantage</span>
-      <h2>Three things our competition can't match.</h2>
-      <p class="muted">Built into every project — not a sales pitch.</p>
-    </div>
-    <div class="adv-grid">
-      <div class="adv-card reveal" data-delay="1">
-        <span class="num">01</span>
-        <h3>AI Front Desk</h3>
-        <p>An AI concierge that never sleeps, never forgets, and books estimates in 32 languages. Voice or text. 24/7.</p>
-        <span class="tag">24 / 7 · EN + ES</span>
-      </div>
-      <div class="adv-card reveal" data-delay="2">
-        <span class="num">02</span>
-        <h3>Fixed Pricing</h3>
-        <p>Every quote is in writing, locked, and final. The price you see is the price you pay — no surprise change orders.</p>
-        <span class="tag">Zero Change Orders</span>
-      </div>
-      <div class="adv-card reveal" data-delay="3">
-        <span class="num">03</span>
-        <h3>One Crew, End-to-End</h3>
-        <p>Same project manager from measure to handshake. No subcontractor pinball. 12-month workmanship warranty.</p>
-        <span class="tag">12-Month Warranty</span>
-      </div>
-    </div>
+<section><div class="container"><div class="script-block reveal">
+<span class="eyebrow">The South Florida script</span>
+<h2>Every homeowner here knows the routine.</h2>
+<p class="muted" style="color:rgba(255,255,255,0.75);font-size:1.15rem;max-width:640px;margin-top:18px">You call three contractors. Two never call back. The third shows up a week late, gives you a price that doubles, and disappears mid-job. We ended that.</p>
+<div class="pain-grid">
+<div class="pain-card"><span class="icon">📞</span><h4>Phones that don't ring back</h4><p>Most contractors lose 73% of leads to bad callbacks. We answer in under 60 seconds — even at 2am.</p><span class="stat">73%</span></div>
+<div class="pain-card"><span class="icon">💸</span><h4>Quotes that change mid-job</h4><p>The original estimate triples. The "small surprise" becomes a $4,000 line item. Not here. Fixed price, in writing, locked.</p><span class="stat">$0</span></div>
+<div class="pain-card"><span class="icon">⏳</span><h4>Jobs that drag on forever</h4><p>A weekend job becomes a six-week mess. We start in 48 hours and finish on the day we promised.</p><span class="stat">48h</span></div>
+</div>
+</div></div></section>
 
-    <!-- STATS STRIP -->
-    <div class="stats-strip reveal">
-      <div class="stat-cell"><span class="num" data-count="500">0</span><span class="lbl">Projects Delivered</span></div>
-      <div class="stat-cell"><span class="num" data-count="48">0</span><span class="lbl">Hours to Start</span></div>
-      <div class="stat-cell"><span class="num" data-count="100">0</span><span class="lbl">% Fixed Price</span></div>
-      <div class="stat-cell"><span class="num" data-count="12">0</span><span class="lbl">Month Warranty</span></div>
-    </div>
-  </div>
-</section>
+<section id="services" class="bg-alt-section"><div class="container">
+<div class="section-header reveal"><span class="eyebrow">What we build</span><h2>Four specialties.<br>Done by one crew.</h2><p class="muted">No subcontractor hand-offs, no "that's not my guy." Measure to handshake — same team, same standard.</p></div>
+<div class="services-grid">
+<div class="svc-card reveal" data-delay="1"><div class="bg" style="background-image:url('https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=900&q=80')"></div><div class="overlay"></div><div class="brand-flood"></div><div class="arrow-go">→</div><div class="content"><div class="num">01 · KITCHENS</div><h3>Kitchen Remodels</h3><p class="desc">Cabinets, counters, backsplash, flooring, electrical, plumbing. Permits included.</p></div></div>
+<div class="svc-card reveal" data-delay="2"><div class="bg" style="background-image:url('https://images.unsplash.com/photo-1620626011761-996317b8d101?w=900&q=80')"></div><div class="overlay"></div><div class="brand-flood"></div><div class="arrow-go">→</div><div class="content"><div class="num">02 · BATHS</div><h3>Bathroom Remodels</h3><p class="desc">Tub-to-shower conversions, vanities, tile, fixtures, full luxury rebuilds.</p></div></div>
+<div class="svc-card reveal" data-delay="3"><div class="bg" style="background-image:url('https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=900&q=80')"></div><div class="overlay"></div><div class="brand-flood"></div><div class="arrow-go">→</div><div class="content"><div class="num">03 · FLOORS</div><h3>Flooring & Tile</h3><p class="desc">Porcelain, hardwood, LVP, demolition and subfloor included.</p></div></div>
+<div class="svc-card reveal" data-delay="4"><div class="bg" style="background-image:url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=900&q=80')"></div><div class="overlay"></div><div class="brand-flood"></div><div class="arrow-go">→</div><div class="content"><div class="num">04 · RESTORATION</div><h3>Water & Damage</h3><p class="desc">Leak repair, mold remediation, drywall, paint. Emergency response.</p></div></div>
+</div>
+</div></section>
 
-<!-- PORTFOLIO BENTO -->
-<section id="portfolio" class="bg-alt-section">
-  <div class="container">
-    <div class="section-header reveal">
-      <span class="eyebrow">Recent work</span>
-      <h2>The portfolio<br>does the selling.</h2>
-      <p class="muted">A few of the kitchens and baths we've handed back to South Florida homeowners this year.</p>
-    </div>
-    <div class="bento">
-      <div class="bento-cell b1 reveal" data-delay="1">
-        <img src="https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=1200&q=80" alt="Luxury bath" loading="lazy">
-        <div class="pin">↗</div>
-        <div class="tag">LUXURY BATH · WESTON</div>
-      </div>
-      <div class="bento-cell b2 reveal" data-delay="2">
-        <img src="https://images.unsplash.com/photo-1565538810643-b5bdb714032a?w=900&q=80" alt="Kitchen" loading="lazy">
-        <div class="pin">↗</div>
-        <div class="tag">KITCHEN · DAVIE</div>
-      </div>
-      <div class="bento-cell b3 reveal" data-delay="3">
-        <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=900&q=80" alt="Full remodel" loading="lazy">
-        <div class="pin">↗</div>
-        <div class="tag">FULL REMODEL · PINES</div>
-      </div>
-      <div class="bento-cell b4 reveal" data-delay="2">
-        <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=900&q=80" alt="Bath remodel" loading="lazy">
-        <div class="pin">↗</div>
-        <div class="tag">BATH SUITE · WESTON</div>
-      </div>
-      <div class="bento-cell b5 reveal" data-delay="4">
-        <img src="https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?w=900&q=80" alt="Floor install" loading="lazy">
-        <div class="pin">↗</div>
-        <div class="tag">FLOORING · DAVIE</div>
-      </div>
-      <div class="bento-cell b6 reveal" data-delay="5">
-        <img src="https://images.unsplash.com/photo-1567016432779-094069958ea5?w=900&q=80" alt="Cabinetry" loading="lazy">
-        <div class="pin">↗</div>
-        <div class="tag">CABINETRY · PINES</div>
-      </div>
-    </div>
-  </div>
-</section>
+<section id="advantages"><div class="container">
+<div class="section-header reveal"><span class="eyebrow">The unfair advantage</span><h2>Three things our competition can't match.</h2><p class="muted">Built into every project — not a sales pitch.</p></div>
+<div class="adv-grid">
+<div class="adv-card reveal" data-delay="1"><span class="num">01</span><h3>AI Front Desk</h3><p>An AI concierge that never sleeps, never forgets, and books estimates in 32 languages. Voice or text. 24/7.</p><span class="tag">24 / 7 · EN + ES</span></div>
+<div class="adv-card reveal" data-delay="2"><span class="num">02</span><h3>Fixed Pricing</h3><p>Every quote is in writing, locked, and final. The price you see is the price you pay — no surprise change orders.</p><span class="tag">Zero Change Orders</span></div>
+<div class="adv-card reveal" data-delay="3"><span class="num">03</span><h3>One Crew, End-to-End</h3><p>Same project manager from measure to handshake. No subcontractor pinball. 12-month workmanship warranty.</p><span class="tag">12-Month Warranty</span></div>
+</div>
+<div class="stats-strip reveal">
+<div class="stat-cell"><span class="num" data-count="500">0</span><span class="lbl">Projects Delivered</span></div>
+<div class="stat-cell"><span class="num" data-count="48">0</span><span class="lbl">Hours to Start</span></div>
+<div class="stat-cell"><span class="num" data-count="100">0</span><span class="lbl">% Fixed Price</span></div>
+<div class="stat-cell"><span class="num" data-count="12">0</span><span class="lbl">Month Warranty</span></div>
+</div>
+</div></section>
 
-<!-- HOW IT WORKS -->
-<section id="how">
-  <div class="container">
-    <div class="section-header reveal">
-      <span class="eyebrow">How it works</span>
-      <h2>Four steps from<br>"hello" to handshake.</h2>
-      <p class="muted">No mystery, no waiting. Here's exactly what happens after you call.</p>
-    </div>
-    <div class="timeline" id="timeline">
-      <div class="timeline-fill" id="tl-fill"></div>
-      <div class="tl-item reveal" data-delay="1">
-        <div class="tl-num">STEP · 01</div>
-        <div class="tl-content">
-          <h3>Call or text — answered in under 60 seconds.</h3>
-          <p>Our AI concierge picks up 24/7, books your free in-home measure, confirms by SMS. Or speak to a real human during business hours.</p>
-        </div>
-      </div>
-      <div class="tl-item reveal" data-delay="2">
-        <div class="tl-num">STEP · 02</div>
-        <div class="tl-content">
-          <h3>Free in-home measure within 48 hours.</h3>
-          <p>Your project manager comes out, measures, takes photos, listens to what you want. No high-pressure pitch.</p>
-        </div>
-      </div>
-      <div class="tl-item reveal" data-delay="3">
-        <div class="tl-num">STEP · 03</div>
-        <div class="tl-content">
-          <h3>Fixed-price quote — in writing, in 24 hours.</h3>
-          <p>Itemized line-by-line. Materials, labor, permits, cleanup. Sign it, lock the price, pick your start date.</p>
-        </div>
-      </div>
-      <div class="tl-item reveal" data-delay="4">
-        <div class="tl-num">STEP · 04</div>
-        <div class="tl-content">
-          <h3>We start in 48 hours and finish on time.</h3>
-          <p>Same crew the whole way. Daily progress photos. Final walkthrough. 12-month workmanship warranty starts the day we shake hands.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+<section id="portfolio" class="bg-alt-section"><div class="container">
+<div class="section-header reveal"><span class="eyebrow">Recent work</span><h2>The portfolio<br>does the selling.</h2><p class="muted">A few of the kitchens and baths we've handed back to South Florida homeowners this year.</p></div>
+<div class="bento">
+<div class="bento-cell b1 reveal" data-delay="1"><img src="https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=1200&q=80" alt="Luxury bath" loading="lazy"><div class="pin">↗</div><div class="tag">LUXURY BATH · WESTON</div></div>
+<div class="bento-cell b2 reveal" data-delay="2"><img src="https://images.unsplash.com/photo-1565538810643-b5bdb714032a?w=900&q=80" alt="Kitchen" loading="lazy"><div class="pin">↗</div><div class="tag">KITCHEN · DAVIE</div></div>
+<div class="bento-cell b3 reveal" data-delay="3"><img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=900&q=80" alt="Full remodel" loading="lazy"><div class="pin">↗</div><div class="tag">FULL REMODEL · PINES</div></div>
+<div class="bento-cell b4 reveal" data-delay="2"><img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=900&q=80" alt="Bath remodel" loading="lazy"><div class="pin">↗</div><div class="tag">BATH SUITE · WESTON</div></div>
+<div class="bento-cell b5 reveal" data-delay="4"><img src="https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?w=900&q=80" alt="Floor install" loading="lazy"><div class="pin">↗</div><div class="tag">FLOORING · DAVIE</div></div>
+<div class="bento-cell b6 reveal" data-delay="5"><img src="https://images.unsplash.com/photo-1567016432779-094069958ea5?w=900&q=80" alt="Cabinetry" loading="lazy"><div class="pin">↗</div><div class="tag">CABINETRY · PINES</div></div>
+</div>
+</div></section>
 
-<!-- TESTIMONIALS -->
-<section class="bg-alt-section">
-  <div class="container">
-    <div class="section-header reveal">
-      <span class="eyebrow">What homeowners say</span>
-      <h2>Five-star, every time.</h2>
-    </div>
-    <div class="test-grid">
-      <div class="test-card reveal" data-delay="1">
-        <div class="stars">★★★★★</div>
-        <p class="quote">"Called Friday night. Crew was here Monday morning. Bathroom was done in 4 days, exactly the price they quoted. Zero drama."</p>
-        <div class="person">
-          <div class="avatar">M</div>
-          <div class="meta"><div class="name">Maria R.</div><div class="city">Weston, FL</div></div>
-        </div>
-      </div>
-      <div class="test-card reveal" data-delay="2">
-        <div class="stars">★★★★★</div>
-        <p class="quote">"I've used three contractors over the years. This is the only one that actually finished on time and didn't try to upcharge me."</p>
-        <div class="person">
-          <div class="avatar">J</div>
-          <div class="meta"><div class="name">James T.</div><div class="city">Pembroke Pines, FL</div></div>
-        </div>
-      </div>
-      <div class="test-card reveal" data-delay="3">
-        <div class="stars">★★★★★</div>
-        <p class="quote">"The fact that someone always picks up the phone — even at 9pm — is unreal in this industry. The kitchen came out beautiful."</p>
-        <div class="person">
-          <div class="avatar">C</div>
-          <div class="meta"><div class="name">Carlos M.</div><div class="city">Davie, FL</div></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+<section id="how"><div class="container">
+<div class="section-header reveal"><span class="eyebrow">How it works</span><h2>Four steps from<br>"hello" to handshake.</h2><p class="muted">No mystery, no waiting. Here's exactly what happens after you call.</p></div>
+<div class="timeline" id="timeline"><div class="timeline-fill" id="tl-fill"></div>
+<div class="tl-item reveal" data-delay="1"><div class="tl-num">STEP · 01</div><div class="tl-content"><h3>Call or text — answered in under 60 seconds.</h3><p>Our AI concierge picks up 24/7, books your free in-home measure, confirms by SMS. Or speak to a real human during business hours.</p></div></div>
+<div class="tl-item reveal" data-delay="2"><div class="tl-num">STEP · 02</div><div class="tl-content"><h3>Free in-home measure within 48 hours.</h3><p>Your project manager comes out, measures, takes photos, listens to what you want. No high-pressure pitch.</p></div></div>
+<div class="tl-item reveal" data-delay="3"><div class="tl-num">STEP · 03</div><div class="tl-content"><h3>Fixed-price quote — in writing, in 24 hours.</h3><p>Itemized line-by-line. Materials, labor, permits, cleanup. Sign it, lock the price, pick your start date.</p></div></div>
+<div class="tl-item reveal" data-delay="4"><div class="tl-num">STEP · 04</div><div class="tl-content"><h3>We start in 48 hours and finish on time.</h3><p>Same crew the whole way. Daily progress photos. Final walkthrough. 12-month workmanship warranty starts the day we shake hands.</p></div></div>
+</div>
+</div></section>
 
-<!-- CTA MEGA -->
-<section>
-  <div class="container">
-    <div class="cta-mega reveal">
-      <span class="eyebrow" style="color:#fff">Ready when you are</span>
-      <h2>Get your fixed price.<br>Today. In writing.</h2>
-      <p>Call now, or let our AI concierge book your free in-home measure in under 60 seconds.</p>
-      <a href="tel:7542476766" class="btn magnetic"><span>📞 Call (754) 247-6766</span><span class="arrow">→</span></a>
-    </div>
-  </div>
-</section>
+<section class="bg-alt-section"><div class="container">
+<div class="section-header reveal"><span class="eyebrow">What homeowners say</span><h2>Five-star, every time.</h2></div>
+<div class="test-grid">
+<div class="test-card reveal" data-delay="1"><div class="stars">★★★★★</div><p class="quote">"Called Friday night. Crew was here Monday morning. Bathroom was done in 4 days, exactly the price they quoted. Zero drama."</p><div class="person"><div class="avatar">M</div><div class="meta"><div class="name">Maria R.</div><div class="city">Weston, FL</div></div></div></div>
+<div class="test-card reveal" data-delay="2"><div class="stars">★★★★★</div><p class="quote">"I've used three contractors over the years. This is the only one that actually finished on time and didn't try to upcharge me."</p><div class="person"><div class="avatar">J</div><div class="meta"><div class="name">James T.</div><div class="city">Pembroke Pines, FL</div></div></div></div>
+<div class="test-card reveal" data-delay="3"><div class="stars">★★★★★</div><p class="quote">"The fact that someone always picks up the phone — even at 9pm — is unreal in this industry. The kitchen came out beautiful."</p><div class="person"><div class="avatar">C</div><div class="meta"><div class="name">Carlos M.</div><div class="city">Davie, FL</div></div></div></div>
+</div>
+</div></section>
 
-<!-- FAQ -->
-<section id="faq">
-  <div class="container">
-    <div class="section-header center reveal">
-      <span class="eyebrow">Questions, answered</span>
-      <h2>What homeowners ask first.</h2>
-    </div>
-    <div class="faq-list">
-      <div class="faq-item">
-        <button class="faq-q">What areas do you serve?<span class="toggle">+</span></button>
-        <div class="faq-a"><div class="faq-a-inner">Weston, Pembroke Pines, Davie, and surrounding South Florida (Broward & northern Miami-Dade). If you're not sure, just call — we'll tell you on the spot.</div></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q">How fast can you start?<span class="toggle">+</span></button>
-        <div class="faq-a"><div class="faq-a-inner">Free in-home measure within 48 hours of your call. Once you sign, demo can start as quickly as the same week — most projects break ground inside 5 business days.</div></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q">Is the price really fixed?<span class="toggle">+</span></button>
-        <div class="faq-a"><div class="faq-a-inner">Yes. Every quote is itemized and locked. The only exception is if you change the scope (add a wall, switch tile, etc.) — and even then, you approve the adjusted price in writing before any work happens.</div></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q">Are you licensed and insured?<span class="toggle">+</span></button>
-        <div class="faq-a"><div class="faq-a-inner">Fully licensed, bonded, and insured in the state of Florida. License numbers are on every contract and we'll send them on request.</div></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q">What if something goes wrong after the job?<span class="toggle">+</span></button>
-        <div class="faq-a"><div class="faq-a-inner">12-month workmanship warranty starts the day we finish. One call and we're back out to make it right — no charge.</div></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q">Do you speak Spanish?<span class="toggle">+</span></button>
-        <div class="faq-a"><div class="faq-a-inner">Sí, completamente. Our AI concierge speaks 32 languages, and we have Spanish-speaking project managers on every job.</div></div>
-      </div>
-    </div>
-  </div>
-</section>
+<section><div class="container"><div class="cta-mega reveal">
+<span class="eyebrow" style="color:#fff">Ready when you are</span>
+<h2>Get your fixed price.<br>Today. In writing.</h2>
+<p>Call now, or let our AI concierge book your free in-home measure in under 60 seconds.</p>
+<a href="tel:7542476766" class="btn magnetic"><span>📞 Call (754) 247-6766</span><span class="arrow">→</span></a>
+</div></div></section>
+
+<section id="faq"><div class="container">
+<div class="section-header center reveal"><span class="eyebrow">Questions, answered</span><h2>What homeowners ask first.</h2></div>
+<div class="faq-list">
+<div class="faq-item"><button class="faq-q">What areas do you serve?<span class="toggle">+</span></button><div class="faq-a"><div class="faq-a-inner">Weston, Pembroke Pines, Davie, and surrounding South Florida (Broward & northern Miami-Dade). If you're not sure, just call — we'll tell you on the spot.</div></div></div>
+<div class="faq-item"><button class="faq-q">How fast can you start?<span class="toggle">+</span></button><div class="faq-a"><div class="faq-a-inner">Free in-home measure within 48 hours of your call. Once you sign, demo can start as quickly as the same week — most projects break ground inside 5 business days.</div></div></div>
+<div class="faq-item"><button class="faq-q">Is the price really fixed?<span class="toggle">+</span></button><div class="faq-a"><div class="faq-a-inner">Yes. Every quote is itemized and locked. The only exception is if you change the scope (add a wall, switch tile, etc.) — and even then, you approve the adjusted price in writing before any work happens.</div></div></div>
+<div class="faq-item"><button class="faq-q">Are you licensed and insured?<span class="toggle">+</span></button><div class="faq-a"><div class="faq-a-inner">Fully licensed, bonded, and insured in the state of Florida. License numbers are on every contract and we'll send them on request.</div></div></div>
+<div class="faq-item"><button class="faq-q">What if something goes wrong after the job?<span class="toggle">+</span></button><div class="faq-a"><div class="faq-a-inner">12-month workmanship warranty starts the day we finish. One call and we're back out to make it right — no charge.</div></div></div>
+<div class="faq-item"><button class="faq-q">Do you speak Spanish?<span class="toggle">+</span></button><div class="faq-a"><div class="faq-a-inner">Sí, completamente. Our AI concierge speaks 32 languages, and we have Spanish-speaking project managers on every job.</div></div></div>
+</div>
+</div></section>
 
 </main>
 
-<!-- FOOTER -->
-<footer>
-  <div class="container">
-    <div class="footer-grid">
-      <div class="footer-col">
-        <div class="brand-mark"><span class="dot">H</span> HandyMan<span class="accent">Pro</span></div>
-        <p class="desc">South Florida's fixed-price kitchen, bath, flooring, and restoration crew. One project manager. One warranty. A phone that always picks up.</p>
-        <a href="tel:7542476766" class="btn btn-primary magnetic" style="margin-top:8px"><span>Call (754) 247-6766</span></a>
-      </div>
-      <div class="footer-col">
-        <h5>Services</h5>
-        <a href="#services">Kitchen Remodels</a>
-        <a href="#services">Bathroom Remodels</a>
-        <a href="#services">Flooring & Tile</a>
-        <a href="#services">Water & Restoration</a>
-      </div>
-      <div class="footer-col">
-        <h5>Service Area</h5>
-        <a>Weston</a>
-        <a>Pembroke Pines</a>
-        <a>Davie</a>
-        <a>Cooper City</a>
-        <a>Southwest Ranches</a>
-      </div>
-      <div class="footer-col">
-        <h5>Company</h5>
-        <a href="#how">Our Process</a>
-        <a href="#advantages">Why Us</a>
-        <a href="#portfolio">Portfolio</a>
-        <a href="#faq">FAQ</a>
-      </div>
-    </div>
-    <div class="footer-bot">
-      <div>© 2026 HandyMan Pro LLC · Licensed · Insured · Bonded</div>
-      <div class="powered">Powered by <span class="b">LOREN AI</span></div>
-    </div>
-  </div>
-</footer>
+<footer><div class="container">
+<div class="footer-grid">
+<div class="footer-col">
+<div class="brand-mark"><span class="dot">H</span> HandyMan<span class="accent">Pro</span></div>
+<p class="desc">South Florida's fixed-price kitchen, bath, flooring, and restoration crew. One project manager. One warranty. A phone that always picks up.</p>
+<a href="tel:7542476766" class="footer-call"><span class="icn">📞</span><span class="ftxt"><span class="lbl">Call us anytime</span><span class="num">(754) 247-6766</span></span></a>
+</div>
+<div class="footer-col"><h5>Services</h5><a href="#services">Kitchen Remodels</a><a href="#services">Bathroom Remodels</a><a href="#services">Flooring & Tile</a><a href="#services">Water & Restoration</a></div>
+<div class="footer-col"><h5>Service Area</h5><a>Weston</a><a>Pembroke Pines</a><a>Davie</a><a>Cooper City</a><a>Southwest Ranches</a></div>
+<div class="footer-col"><h5>Company</h5><a href="#how">Our Process</a><a href="#advantages">Why Us</a><a href="#portfolio">Portfolio</a><a href="#faq">FAQ</a></div>
+</div>
+<div class="footer-bot">
+<div>© 2026 HandyMan Pro LLC · Licensed · Insured · Bonded</div>
+<a href="https://ai-loren.com" target="_blank" rel="noopener" class="powered">Powered by <span class="b">LOREN AI</span><span class="arr">↗</span></a>
+</div>
+</div></footer>
 
-<!-- MOBILE STICKY CTA -->
 <div class="mob-cta">
-  <a href="tel:7542476766" class="call">📞 Call Now</a>
-  <a href="sms:7542476766" class="text">💬 Text Us</a>
+<a href="tel:7542476766" class="call">📞 Call Now</a>
+<a href="sms:7542476766" class="text">💬 Text Us</a>
 </div>
 
-<!-- ELEVENLABS CONCIERGE WIDGET -->
 <elevenlabs-convai agent-id="agent_5301kse1jjqaevja3b7gjs3n0e12"></elevenlabs-convai>
 <script src="https://unpkg.com/@elevenlabs/convai-widget-embed" async type="text/javascript"></script>
 
 <script>
-// ============== LOADER ==============
-window.addEventListener('load',()=>{
-  setTimeout(()=>document.getElementById('loader').classList.add('hidden'),400);
-});
-
-// ============== IMG FALLBACK ==============
+window.addEventListener('load',()=>{setTimeout(()=>document.getElementById('loader').classList.add('hidden'),400);});
 const FALLBACK_IMG='https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=1200&q=80';
-document.querySelectorAll('img').forEach(img=>{
-  img.addEventListener('error',function(){
-    if(this.src!==FALLBACK_IMG){this.src=FALLBACK_IMG}
-  });
-});
-
-// ============== SCROLL PROGRESS ==============
+document.querySelectorAll('img').forEach(img=>{img.addEventListener('error',function(){if(this.src!==FALLBACK_IMG){this.src=FALLBACK_IMG}});});
 const progress=document.getElementById('progress');
 const nav=document.getElementById('nav');
-window.addEventListener('scroll',()=>{
-  const sc=window.scrollY;
-  const h=document.documentElement.scrollHeight-window.innerHeight;
-  progress.style.width=(sc/h*100)+'%';
-  if(sc>20)nav.classList.add('scrolled');else nav.classList.remove('scrolled');
-  updateTimeline();
-  updateParallax();
-},{passive:true});
-
-// ============== CURSOR SPOTLIGHT ==============
+window.addEventListener('scroll',()=>{const sc=window.scrollY;const h=document.documentElement.scrollHeight-window.innerHeight;progress.style.width=(sc/h*100)+'%';if(sc>20)nav.classList.add('scrolled');else nav.classList.remove('scrolled');updateTimeline();updateParallax();},{passive:true});
 const spot=document.getElementById('spotlight');
 let mx=0,my=0,sx=0,sy=0;
 window.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY});
-function tick(){sx+=(mx-sx)*.18;sy+=(my-sy)*.18;spot.style.transform=`translate(${sx}px,${sy}px) translate(-50%,-50%)`;requestAnimationFrame(tick)}
+function tick(){sx+=(mx-sx)*.18;sy+=(my-sy)*.18;spot.style.transform='translate('+sx+'px,'+sy+'px) translate(-50%,-50%)';requestAnimationFrame(tick)}
 tick();
-
-// ============== HERO SPARKLES ==============
 const sp=document.getElementById('sparkles');
-if(sp){
-  for(let i=0;i<14;i++){
-    const s=document.createElement('div');
-    s.className='star';
-    s.style.top=(Math.random()*100)+'%';
-    s.style.left=(Math.random()*100)+'%';
-    s.style.animationDelay=(Math.random()*3)+'s';
-    s.style.animationDuration=(2+Math.random()*2)+'s';
-    sp.appendChild(s);
-  }
-}
-
-// ============== REVEAL ON SCROLL ==============
-const io=new IntersectionObserver(entries=>{
-  entries.forEach(en=>{if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target)}});
-},{threshold:.12,rootMargin:'0px 0px -60px 0px'});
+if(sp){for(let i=0;i<14;i++){const s=document.createElement('div');s.className='star';s.style.top=(Math.random()*100)+'%';s.style.left=(Math.random()*100)+'%';s.style.animationDelay=(Math.random()*3)+'s';s.style.animationDuration=(2+Math.random()*2)+'s';sp.appendChild(s);}}
+const io=new IntersectionObserver(entries=>{entries.forEach(en=>{if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target)}});},{threshold:.12,rootMargin:'0px 0px -60px 0px'});
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
-
-// ============== MAGNETIC BUTTONS ==============
-document.querySelectorAll('.magnetic').forEach(btn=>{
-  btn.addEventListener('mousemove',e=>{
-    const r=btn.getBoundingClientRect();
-    const x=e.clientX-r.left-r.width/2;
-    const y=e.clientY-r.top-r.height/2;
-    btn.style.transform=`translate(${x*.18}px,${y*.25}px)`;
-  });
-  btn.addEventListener('mouseleave',()=>{btn.style.transform=''});
-});
-
-// ============== PARALLAX HERO ==============
+document.querySelectorAll('.magnetic').forEach(btn=>{btn.addEventListener('mousemove',e=>{const r=btn.getBoundingClientRect();const x=e.clientX-r.left-r.width/2;const y=e.clientY-r.top-r.height/2;btn.style.transform='translate('+(x*.18)+'px,'+(y*.25)+'px)';});btn.addEventListener('mouseleave',()=>{btn.style.transform=''});});
 const parallaxEls=document.querySelectorAll('[data-parallax]');
-function updateParallax(){
-  const sc=window.scrollY;
-  parallaxEls.forEach(el=>{
-    const speed=parseFloat(el.dataset.parallax);
-    el.style.translate=`0 ${sc*speed*-1}px`;
-  });
-}
-
-// ============== HERO COLLAGE TILT ==============
+function updateParallax(){const sc=window.scrollY;parallaxEls.forEach(el=>{const speed=parseFloat(el.dataset.parallax);el.style.translate='0 '+(sc*speed*-1)+'px';});}
 const collage=document.getElementById('collage');
 if(collage&&matchMedia('(hover:hover)').matches){
-  collage.addEventListener('mousemove',e=>{
-    const r=collage.getBoundingClientRect();
-    const px=(e.clientX-r.left)/r.width-.5;
-    const py=(e.clientY-r.top)/r.height-.5;
-    collage.querySelectorAll('.card').forEach((c,i)=>{
-      const d=(i+1)*4;
-      c.style.transform=`rotate(${[-3,4,-8][i]||0}deg) translate(${px*d}px,${py*d}px)`;
-    });
-  });
-  collage.addEventListener('mouseleave',()=>{
-    collage.querySelectorAll('.card').forEach((c,i)=>{c.style.transform=`rotate(${[-3,4,-8][i]||0}deg)`});
-  });
+collage.addEventListener('mousemove',e=>{const r=collage.getBoundingClientRect();const px=(e.clientX-r.left)/r.width-.5;const py=(e.clientY-r.top)/r.height-.5;collage.querySelectorAll('.card').forEach((c,i)=>{const d=(i+1)*4;const rot=[-2,3,-7][i]||0;c.style.transform='rotate('+rot+'deg) translate('+(px*d)+'px,'+(py*d)+'px)';});});
+collage.addEventListener('mouseleave',()=>{collage.querySelectorAll('.card').forEach((c,i)=>{const rot=[-2,3,-7][i]||0;c.style.transform='rotate('+rot+'deg)'});});
 }
-
-// ============== TIMELINE FILL ==============
 const tl=document.getElementById('timeline');
 const tlFill=document.getElementById('tl-fill');
-function updateTimeline(){
-  if(!tl||!tlFill)return;
-  const r=tl.getBoundingClientRect();
-  const vh=window.innerHeight;
-  const start=vh*.6;
-  const total=r.height;
-  const scrolled=Math.max(0,Math.min(total,start-r.top));
-  const pct=(scrolled/total)*100;
-  tlFill.style.height=pct+'%';
-  document.querySelectorAll('.tl-item').forEach(it=>{
-    const ir=it.getBoundingClientRect();
-    if(ir.top<vh*.7)it.classList.add('in');
-  });
-}
-
-// ============== COUNTER ANIMATION ==============
+function updateTimeline(){if(!tl||!tlFill)return;const r=tl.getBoundingClientRect();const vh=window.innerHeight;const start=vh*.6;const total=r.height;const scrolled=Math.max(0,Math.min(total,start-r.top));const pct=(scrolled/total)*100;tlFill.style.height=pct+'%';document.querySelectorAll('.tl-item').forEach(it=>{const ir=it.getBoundingClientRect();if(ir.top<vh*.7)it.classList.add('in');});}
 const counters=document.querySelectorAll('[data-count]');
-const cio=new IntersectionObserver(entries=>{
-  entries.forEach(en=>{
-    if(en.isIntersecting){
-      const el=en.target;
-      const target=parseInt(el.dataset.count);
-      let cur=0;
-      const inc=Math.max(1,Math.ceil(target/60));
-      const t=setInterval(()=>{
-        cur+=inc;
-        if(cur>=target){cur=target;clearInterval(t)}
-        el.textContent=cur+(target===500?'+':'');
-      },22);
-      cio.unobserve(el);
-    }
-  });
-},{threshold:.4});
+const cio=new IntersectionObserver(entries=>{entries.forEach(en=>{if(en.isIntersecting){const el=en.target;const target=parseInt(el.dataset.count);let cur=0;const inc=Math.max(1,Math.ceil(target/60));const t=setInterval(()=>{cur+=inc;if(cur>=target){cur=target;clearInterval(t)}el.textContent=cur+(target===500?'+':'');},22);cio.unobserve(el);}});},{threshold:.4});
 counters.forEach(c=>cio.observe(c));
-
-// ============== FAQ ACCORDION ==============
-document.querySelectorAll('.faq-q').forEach(q=>{
-  q.addEventListener('click',()=>{
-    const item=q.parentElement;
-    document.querySelectorAll('.faq-item.open').forEach(o=>{if(o!==item)o.classList.remove('open')});
-    item.classList.toggle('open');
-  });
-});
-
-// ============== SMOOTH SCROLL OFFSET ==============
-document.querySelectorAll('a[href^="#"]').forEach(a=>{
-  a.addEventListener('click',e=>{
-    const id=a.getAttribute('href');
-    if(id&&id.length>1){
-      const t=document.querySelector(id);
-      if(t){e.preventDefault();const y=t.getBoundingClientRect().top+window.scrollY-90;window.scrollTo({top:y,behavior:'smooth'})}
-    }
-  });
-});
-
-// ============== ELEVENLABS WIDGET STYLE OVERRIDE ==============
-// Try to inject brand styling into the widget host
+document.querySelectorAll('.faq-q').forEach(q=>{q.addEventListener('click',()=>{const item=q.parentElement;document.querySelectorAll('.faq-item.open').forEach(o=>{if(o!==item)o.classList.remove('open')});item.classList.toggle('open');});});
+document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',e=>{const id=a.getAttribute('href');if(id&&id.length>1){const t=document.querySelector(id);if(t){e.preventDefault();const y=t.getBoundingClientRect().top+window.scrollY-90;window.scrollTo({top:y,behavior:'smooth'})}}});});
 function styleWidget(){
-  const w=document.querySelector('elevenlabs-convai');
-  if(!w||!w.shadowRoot)return false;
-  try{
-    const style=document.createElement('style');
-    style.textContent=`
-      /* Hide ElevenLabs branding */
-      [class*="powered"],[class*="Powered"],[class*="branding"],[class*="Branding"]{display:none !important}
-      a[href*="elevenlabs"]{display:none !important}
-      /* Brand the launcher */
-      :host{--accent:#C8843D !important;--accent-hover:#8B5A1E !important}
-    `;
-    w.shadowRoot.appendChild(style);
-    return true;
-  }catch(e){return false}
+const w=document.querySelector('elevenlabs-convai');
+if(!w||!w.shadowRoot)return false;
+try{
+if(!w.shadowRoot.querySelector('#hmp-brand-style')){
+const style=document.createElement('style');
+style.id='hmp-brand-style';
+style.textContent='[class*="powered"],[class*="Powered"],[class*="branding"],[class*="Branding"]{display:none !important}a[href*="elevenlabs"]{display:none !important}:host{--accent:#C8843D !important;--accent-hover:#8B5A1E !important}.loren-credit{position:absolute;left:50%;bottom:8px;transform:translateX(-50%);font-family:monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:#5C6470;text-decoration:none;display:inline-flex;align-items:center;gap:5px;padding:5px 10px;border-radius:999px;background:rgba(200,132,61,0.08);border:1px solid rgba(200,132,61,0.18);transition:all .2s;white-space:nowrap;z-index:9999}.loren-credit:hover{background:rgba(200,132,61,0.18);color:#0F1419}.loren-credit .b{color:#C8843D;font-weight:700}';
+w.shadowRoot.appendChild(style);
 }
-let tries=0;
-const styleInt=setInterval(()=>{if(styleWidget()||++tries>20)clearInterval(styleInt)},500);
+const panel=w.shadowRoot.querySelector('[class*="ConvaiPanel"],[class*="convai-panel"],[role="dialog"],[class*="panel"]');
+if(panel && !panel.querySelector('.loren-credit')){
+const a=document.createElement('a');
+a.className='loren-credit';
+a.href='https://ai-loren.com';
+a.target='_blank';
+a.rel='noopener';
+a.innerHTML='Powered by <span class="b">LOREN AI</span> &#8599;';
+panel.appendChild(a);
+}
+return true;
+}catch(e){return false}
+}
+let _wtries=0;
+const _wint=setInterval(()=>{styleWidget(); if(++_wtries>40)clearInterval(_wint)},800);
+const lorenPill=document.createElement('a');
+lorenPill.href='https://ai-loren.com';
+lorenPill.target='_blank';
+lorenPill.rel='noopener';
+lorenPill.className='loren-pill';
+lorenPill.innerHTML='Powered by <span class="b">LOREN AI</span>';
+document.body.appendChild(lorenPill);
 </script>
 
 </body>
